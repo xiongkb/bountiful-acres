@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayArea
   - Water
   - UI
-  - Background
-  - Play Area
-  - Foreground
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3164142277
+    locked: 0
+  - name: Crops
+    uniqueID: 2642025003
+    locked: 0
+  - name: Foreground
+    uniqueID: 240873647
+    locked: 0
+  - name: Tools
+    uniqueID: 3686955453
     locked: 0
