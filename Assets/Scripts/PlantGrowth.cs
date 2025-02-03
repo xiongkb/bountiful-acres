@@ -6,7 +6,8 @@ public class PlantGrowth : MonoBehaviour
 {
     [SerializeField] private float speed = 0f; // plant growth speed
 
-    public GameObject[] stages;  // add the plant here
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] stages;  // add the plant here
 
     private float currTime = 0f;
     private float updateTime;
@@ -16,6 +17,10 @@ public class PlantGrowth : MonoBehaviour
     void Start()
     {
         updateTime = speed;
+
+        if (stages.Length > 0) {
+            spriteRenderer.sprite = stages[0];
+        }
     }
 
     // Update is called once per frame
@@ -25,6 +30,7 @@ public class PlantGrowth : MonoBehaviour
 
             if (currTime >= updateTime) {
                 stage += 1;
+                spriteRenderer.sprite = stages[stage];
                 updateTime += speed;
             }
 
