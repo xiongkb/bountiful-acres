@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FarmPlot : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
     // starting status of the plot
     private bool isTilled = false;
     private bool isPlanted = false;
@@ -18,11 +19,13 @@ public class FarmPlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(Collider2D.IsTouchingLayers());
+
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log("TEST");
-    }
+    public void Till() {
+        if (isTilled) return;
 
+        spriteRenderer.color = new Color(0.65f, .16f, .16f, 1f);
+        isTilled = true;
+    }
 }
