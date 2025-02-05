@@ -33,8 +33,6 @@ public class PlantGrowth : MonoBehaviour
                 spriteRenderer.sprite = stages[stage];
                 updateTime += speed;
             }
-
-            Debug.Log(currTime + ": " + stage);
         }
         
     }
