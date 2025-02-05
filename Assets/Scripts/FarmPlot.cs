@@ -18,8 +18,11 @@ public class FarmPlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Debug.Log(Collider2D.IsTouchingLayers());
     }
 
-    
+    void OnTriggerEnter2D(Collider2D col) {
+        Debug.Log("TEST");
+    }
+
 }
