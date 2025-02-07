@@ -8,6 +8,8 @@ TagManager:
   - WateringCan
   - Scythe
   - Plot
+  - SeedBag
+  - ToolShed
   layers:
   - Default
   - TransparentFX

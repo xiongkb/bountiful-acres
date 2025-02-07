@@ -5,9 +5,12 @@ using UnityEngine;
 public class FarmTool : MonoBehaviour
 {
     [SerializeField] private GameObject tool;
+    [SerializeField] private Sprite seedSprite;
+    // private Vector2 startPos;
     private bool dragging;
     private Vector2 mouseOffset;
     private GameObject plot;
+    private bool onToolShed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,22 +26,26 @@ public class FarmTool : MonoBehaviour
         var mousePos = GetMousePos();
 
         transform.position = mousePos - mouseOffset;
+
+        Debug.Log(onToolShed);
     }
 
     void OnMouseDown() {
-        dragging = true;
-        mouseOffset = GetMousePos() - (Vector2)transform.position;
-
-        if (plot == null) return;
-
-        switch(tool.name) {
-            case "Hoe":
-                FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
-                farmPlot.Till();
-                break;
-            default:
-                break;
-        }        
+        if (dragging == false) {
+            dragging = true;
+            mouseOffset = GetMousePos() - (Vector2)transform.position;
+        } else if (plot != null) {
+            switch(tool.name) {
+                case "Hoe":
+                    FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
+                    farmPlot.Till();
+                    break;
+                default:
+                    break;
+            }  
+        } else if (onToolShed) {
+            dragging = false;
+        }
     }
 
     Vector2 GetMousePos() {
@@ -46,14 +53,12 @@ public class FarmTool : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        if (col.tag == "Plot") {
-            plot = col.gameObject;
-        }
+        if (col.tag == "Plot") plot = col.gameObject;
+            else if (col.tag == "ToolShed") onToolShed = true;
     }
 
     void OnTriggerExit2D(Collider2D col) {
-        if (col.tag == "Plot") {
-            plot = null;
-        }
+        if (col.tag == "Plot") plot = null;
+            else if (col.tag == "ToolShed") onToolShed = false;
     }
 }
