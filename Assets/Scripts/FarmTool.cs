@@ -5,7 +5,7 @@ using UnityEngine;
 public class FarmTool : MonoBehaviour
 {
     [SerializeField] private GameObject tool;
-    [SerializeField] private Sprite seedSprite;
+    [SerializeField] private GameObject seed;
     private Vector2 startPos;
     private bool dragging;
     private Vector2 mouseOffset;
@@ -33,10 +33,14 @@ public class FarmTool : MonoBehaviour
             dragging = true;
             mouseOffset = GetMousePos() - (Vector2)transform.position;
         } else if (plot != null) {
-            switch(tool.name) {
+            FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
+
+            switch(tool.tag) {
                 case "Hoe":
-                    FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
                     farmPlot.Till();
+                    break;
+                case "SeedBag":
+                    farmPlot.Plant(seed);
                     break;
                 default:
                     break;
@@ -57,7 +61,7 @@ public class FarmTool : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D col) {
-        if (col.tag == "Plot") plot = null;
+        if (col.tag == "Plot" && col.name == plot.name) plot = null;
             else if (col.tag == "ToolShed") onToolShed = false;
     }
 }

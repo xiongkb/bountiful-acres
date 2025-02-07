@@ -8,6 +8,7 @@ public class FarmPlot : MonoBehaviour
     [SerializeField] private Sprite tilledSprite1;
     [SerializeField] private Sprite tilledSprite2;
     [SerializeField] private Sprite tilledSprite3;
+    private Vector2 plotPos;
     // starting status of the plot
     private int tillLevel = 0;
     private bool isPlanted = false;
@@ -16,7 +17,7 @@ public class FarmPlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       plotPos = (Vector2)this.transform.position;
     }
 
     // Update is called once per frame
@@ -42,5 +43,9 @@ public class FarmPlot : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void Plant(GameObject seed) {
+        if (tillLevel > 0) Instantiate(seed, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
     }
 }
