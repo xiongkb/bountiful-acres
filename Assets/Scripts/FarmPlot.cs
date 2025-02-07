@@ -5,8 +5,11 @@ using UnityEngine;
 public class FarmPlot : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite tilledSprite1;
+    [SerializeField] private Sprite tilledSprite2;
+    [SerializeField] private Sprite tilledSprite3;
     // starting status of the plot
-    private bool isTilled = false;
+    private int tillLevel = 0;
     private bool isPlanted = false;
     private bool isWatered = false;
 
@@ -23,9 +26,21 @@ public class FarmPlot : MonoBehaviour
     }
 
     public void Till() {
-        if (isTilled) return;
-
-        spriteRenderer.color = new Color(0.65f, .16f, .16f, 1f);
-        isTilled = true;
+        switch(tillLevel) {
+            case 0:
+                spriteRenderer.sprite = tilledSprite1;
+                tillLevel = 1;
+                break;
+            case 1:
+                spriteRenderer.sprite = tilledSprite2;
+                tillLevel = 2;
+                break;
+            case 2:
+                spriteRenderer.sprite = tilledSprite3;
+                tillLevel = 3;
+                break;
+            default:
+                break;
+        }
     }
 }
