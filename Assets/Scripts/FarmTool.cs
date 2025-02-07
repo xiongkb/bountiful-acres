@@ -6,7 +6,7 @@ public class FarmTool : MonoBehaviour
 {
     [SerializeField] private GameObject tool;
     [SerializeField] private Sprite seedSprite;
-    // private Vector2 startPos;
+    private Vector2 startPos;
     private bool dragging;
     private Vector2 mouseOffset;
     private GameObject plot;
@@ -15,7 +15,7 @@ public class FarmTool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        startPos = (Vector2)this.transform.position;
     }
 
     // Update is called once per frame
@@ -26,8 +26,6 @@ public class FarmTool : MonoBehaviour
         var mousePos = GetMousePos();
 
         transform.position = mousePos - mouseOffset;
-
-        Debug.Log(onToolShed);
     }
 
     void OnMouseDown() {
@@ -45,6 +43,7 @@ public class FarmTool : MonoBehaviour
             }  
         } else if (onToolShed) {
             dragging = false;
+            this.transform.position = startPos;
         }
     }
 
