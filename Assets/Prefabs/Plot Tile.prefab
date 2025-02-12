@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3735997265605429491}
   - component: {fileID: 2023573415766962033}
   - component: {fileID: 3168049322213556239}
-  - component: {fileID: 7223466078877851377}
+  - component: {fileID: 7219673286168094773}
   m_Layer: 3
   m_Name: Plot Tile
   m_TagString: Plot
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1130825019
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 84464b466f72c0446b2e5f4dba3c9b81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2023573415766962033}
-  tilledSprite1: {fileID: 21300000, guid: ea7b8b87900cb6149acc2bb535a27e38, type: 3}
-  tilledSprite2: {fileID: 21300000, guid: e9bfd5b9651d93e408a4b9f41177cba8, type: 3}
-  tilledSprite3: {fileID: 21300000, guid: f40bc632838b8b642832a7ccf456a1e7, type: 3}
---- !u!61 &7223466078877851377
+  tilledSprite1: {fileID: 21300000, guid: b8dbf4e5417a1e64dbf70f669dc5e079, type: 3}
+  tilledSprite2: {fileID: 21300000, guid: e9bd5bfb3df775d4ba2596e74e2d4290, type: 3}
+  tilledSprite3: {fileID: 21300000, guid: d0e96173b61e64b479dcf15046ba7977, type: 3}
+--- !u!61 &7219673286168094773
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,12 +138,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
