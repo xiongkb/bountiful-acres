@@ -35,12 +35,19 @@ public class FarmTool : MonoBehaviour
         } else if (plot != null) {
             FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
 
+            // tool functions
             switch(tool.tag) {
                 case "Hoe":
                     farmPlot.Till();
                     break;
                 case "SeedBag":
                     farmPlot.Plant(seed);
+                    break;
+                case "WaterCan":
+                    farmPlot.Water();
+                    break;
+                case "Scythe":
+                    farmPlot.Harvest();
                     break;
                 default:
                     break;

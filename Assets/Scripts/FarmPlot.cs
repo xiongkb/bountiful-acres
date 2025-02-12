@@ -46,6 +46,17 @@ public class FarmPlot : MonoBehaviour
     }
 
     public void Plant(GameObject seed) {
-        if (tillLevel > 0) Instantiate(seed, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+        if (tillLevel > 0) {
+            Instantiate(seed, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+            // Manager.tillCounter = tillLevel;
+        }
+    }
+
+    public void Water() {
+
+    }
+
+    public void Harvest() {
+
     }
 }

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
+    // player info
+    public int stamina = 100;
+
+    // counterss
+    public int waterCounter = 0;
+    public int tillCounter = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,18 +23,4 @@ public class Manager : MonoBehaviour
         
     }
 
-    // array of plot game objects instead of strings
-    string[,] plots = {
-        {"plot1", "plot2", "plot3"},
-        {"plot4", "plot5", "plot6"},
-        {"plot7", "plot8", "plot9"}
-    };
-
-    // array of plant objs inside a plot (each plot has their own array of plant objs)
-    // each plant obj keeps its own growth state
-    string[,] plants = {
-        {"strawberry", "strawberry", "strawberry"},
-        {"kiwi", "strawberry", "papaya"},
-        {"fruit", "veggie", "meat"}
-    };
 }
