@@ -13,6 +13,7 @@ public class FarmPlot : MonoBehaviour
     private int tillLevel = 0;
     private bool isPlanted = false;
     private bool isWatered = false;
+    private GameObject currentTool;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,12 @@ public class FarmPlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (currentTool != null && gameObject.GetComponent<Collider2D>().OverlapPoint(point)) {        
+            Debug.Log("TEST20");
+        FarmTool farmTool = (FarmTool) currentTool.GetComponent(typeof(FarmTool));
+        farmTool.plot = gameObject;
+        }
     }
 
     public void Till() {
@@ -48,7 +54,6 @@ public class FarmPlot : MonoBehaviour
     public void Plant(GameObject seed) {
         if (tillLevel > 0) {
             Instantiate(seed, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-            // Manager.tillCounter = tillLevel;
         }
     }
 
@@ -58,5 +63,17 @@ public class FarmPlot : MonoBehaviour
 
     public void Harvest() {
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
+        if (farmTool != null) currentTool = col.gameObject;
+    }
+
+    void OnTriggerExit2D(Collider2D col) {
+        if (col.tag != currentTool.tag) return;
+
+        FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
+        if (farmTool != null) currentTool = null;
     }
 }

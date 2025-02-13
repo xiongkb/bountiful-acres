@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3735997265605429491}
   - component: {fileID: 2023573415766962033}
   - component: {fileID: 3168049322213556239}
-  - component: {fileID: 7219673286168094773}
+  - component: {fileID: 7764736971736170054}
   m_Layer: 3
   m_Name: Plot Tile
   m_TagString: Plot
@@ -102,7 +102,7 @@ MonoBehaviour:
   tilledSprite1: {fileID: 21300000, guid: b8dbf4e5417a1e64dbf70f669dc5e079, type: 3}
   tilledSprite2: {fileID: 21300000, guid: e9bd5bfb3df775d4ba2596e74e2d4290, type: 3}
   tilledSprite3: {fileID: 21300000, guid: d0e96173b61e64b479dcf15046ba7977, type: 3}
---- !u!61 &7219673286168094773
+--- !u!61 &7764736971736170054
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

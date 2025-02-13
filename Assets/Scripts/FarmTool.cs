@@ -9,7 +9,7 @@ public class FarmTool : MonoBehaviour
     private Vector2 startPos;
     private bool dragging;
     private Vector2 mouseOffset;
-    private GameObject plot;
+    public GameObject plot;
     private bool onToolShed = false;
 
     // Start is called before the first frame update
@@ -23,15 +23,13 @@ public class FarmTool : MonoBehaviour
     {
         if (!dragging) return;
 
-        var mousePos = GetMousePos();
-
-        transform.position = mousePos - mouseOffset;
+        transform.position = GetMousePos();
     }
 
     void OnMouseDown() {
         if (dragging == false) {
             dragging = true;
-            mouseOffset = GetMousePos() - (Vector2)transform.position;
+            transform.position = GetMousePos();
         } else if (plot != null) {
             FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
 
@@ -63,12 +61,16 @@ public class FarmTool : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        if (col.tag == "Plot") plot = col.gameObject;
-            else if (col.tag == "ToolShed") onToolShed = true;
+        Debug.Log("Enter: " + col.tag);
+        // if (col.tag == "Plot") plot = col.gameObject;
+        //     else
+            if (col.tag == "ToolShed") onToolShed = true;
     }
 
     void OnTriggerExit2D(Collider2D col) {
-        if (col.tag == "Plot" && col.name == plot.name) plot = null;
-            else if (col.tag == "ToolShed") onToolShed = false;
+        Debug.Log("Exit: " + col.tag);
+        // if (col.tag == "Plot" && col.name == plot.name) plot = null;
+        //     else
+            if (col.tag == "ToolShed") onToolShed = false;
     }
 }
