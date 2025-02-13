@@ -41,7 +41,7 @@ public class FarmTool : MonoBehaviour
                 case "SeedBag":
                     farmPlot.Plant(seed);
                     break;
-                case "WaterCan":
+                case "WateringCan":
                     farmPlot.Water();
                     break;
                 case "Scythe":
@@ -61,14 +61,14 @@ public class FarmTool : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log("Enter: " + col.tag);
+        // Debug.Log("Enter: " + col.tag);
         // if (col.tag == "Plot") plot = col.gameObject;
         //     else
             if (col.tag == "ToolShed") onToolShed = true;
     }
 
     void OnTriggerExit2D(Collider2D col) {
-        Debug.Log("Exit: " + col.tag);
+        // Debug.Log("Exit: " + col.tag);
         // if (col.tag == "Plot" && col.name == plot.name) plot = null;
         //     else
             if (col.tag == "ToolShed") onToolShed = false;

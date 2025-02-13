@@ -8,28 +8,26 @@ public class FarmPlot : MonoBehaviour
     [SerializeField] private Sprite tilledSprite1;
     [SerializeField] private Sprite tilledSprite2;
     [SerializeField] private Sprite tilledSprite3;
-    private Vector2 plotPos;
     // starting status of the plot
     private int tillLevel = 0;
+    private int waterLevel = 0;
     private bool isPlanted = false;
     private bool isWatered = false;
-    private GameObject currentTool;
 
     // Start is called before the first frame update
     void Start()
     {
-       plotPos = (Vector2)this.transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (currentTool != null && gameObject.GetComponent<Collider2D>().OverlapPoint(point)) {        
-            Debug.Log("TEST20");
-        FarmTool farmTool = (FarmTool) currentTool.GetComponent(typeof(FarmTool));
-        farmTool.plot = gameObject;
-        }
+        // if (currentTool != null && !gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) {
+        //     FarmTool farmTool = (FarmTool) currentTool.GetComponent(typeof(FarmTool));
+        //     farmTool.plot = null;
+        //     currentTool = null;
+        // }
     }
 
     public void Till() {
@@ -58,22 +56,43 @@ public class FarmPlot : MonoBehaviour
     }
 
     public void Water() {
-
+        if (tillLevel > 0 && waterLevel < 3) {
+            waterLevel++;
+            float tint = 1 - waterLevel * .2f;
+            spriteRenderer.color = new Color(tint, tint, tint);
+        }
     }
 
     public void Harvest() {
 
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
+    void OnTriggerStay2D(Collider2D col) {
         FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
-        if (farmTool != null) currentTool = col.gameObject;
+
+        if (farmTool != null) {
+            // Debug.Log(farmTool.plot.name);
+            if (gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) farmTool.plot = gameObject;
+                else if (farmTool.plot.name == gameObject.name) farmTool.plot = null;
+        }
     }
 
-    void OnTriggerExit2D(Collider2D col) {
-        if (col.tag != currentTool.tag) return;
-
-        FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
-        if (farmTool != null) currentTool = null;
+    Vector2 GetMousePos() {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
+
+    // void OnTriggerEnter2D(Collider2D col) {
+    //     FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
+
+    //     if (farmTool != null) {
+    //         if (gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) farmTool.plot = gameObject;
+    //     }
+    // }
+
+    // void OnTriggerExit2D(Collider2D col) {
+    //     Debug.Log("TEST100");
+    //     FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
+
+    //     if (farmTool != null && farmTool.plot.name == gameObject.name) farmTool.plot = null;
+    // }
 }
