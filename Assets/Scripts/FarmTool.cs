@@ -6,6 +6,7 @@ public class FarmTool : MonoBehaviour
 {
     [SerializeField] private GameObject tool;
     [SerializeField] private GameObject seed;
+    [SerializeField] private GameObject crop;
     private Vector2 startPos;
     private bool dragging;
     private Vector2 mouseOffset;
@@ -39,7 +40,7 @@ public class FarmTool : MonoBehaviour
                     farmPlot.Till();
                     break;
                 case "SeedBag":
-                    farmPlot.Plant(seed);
+                    farmPlot.Plant(seed, crop);
                     break;
                 case "WateringCan":
                     farmPlot.Water();

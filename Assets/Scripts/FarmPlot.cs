@@ -13,6 +13,10 @@ public class FarmPlot : MonoBehaviour
     private int waterLevel = 0;
     private bool isPlanted = false;
     private bool isWatered = false;
+    private bool isGrowing = false;
+    private GameObject plantedSeed;
+    private GameObject seedCrop;
+    private GameObject plantedCrop;
 
     // Start is called before the first frame update
     void Start()
@@ -49,9 +53,14 @@ public class FarmPlot : MonoBehaviour
         }
     }
 
-    public void Plant(GameObject seed) {
+    public void Plant(GameObject seed, GameObject crop) {
         if (tillLevel > 0) {
-            Instantiate(seed, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+            plantedSeed = Instantiate(seed, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+            seedCrop = crop;
+
+            isPlanted = true;
+
+            if (waterLevel > 0) Grow();
         }
     }
 
@@ -60,7 +69,18 @@ public class FarmPlot : MonoBehaviour
             waterLevel++;
             float tint = 1 - waterLevel * .2f;
             spriteRenderer.color = new Color(tint, tint, tint);
+
+            if (isPlanted) Grow();
         }
+    }
+
+    public void Grow() {
+        if (isGrowing) return;
+
+        Destroy(plantedSeed, 0);
+
+        plantedCrop = Instantiate(seedCrop, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+        isGrowing = true;
     }
 
     public void Harvest() {
