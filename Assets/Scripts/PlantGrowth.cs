@@ -8,10 +8,10 @@ public class PlantGrowth : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
     public Sprite[] stages;  // add the plant here
+    public int stage = 0;
 
     private float currTime = 0f;
     private float updateTime;
-    private int stage = 0;
 
     // Start is called before the first frame update
     void Start()

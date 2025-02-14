@@ -12,7 +12,6 @@ public class FarmPlot : MonoBehaviour
     private int tillLevel = 0;
     private int waterLevel = 0;
     private bool isPlanted = false;
-    private bool isWatered = false;
     private bool isGrowing = false;
     private GameObject plantedSeed;
     private GameObject seedCrop;
@@ -84,7 +83,22 @@ public class FarmPlot : MonoBehaviour
     }
 
     public void Harvest() {
+        if (!isPlanted || plantedCrop == null) return;
+        
+        PlantGrowth plantGrowth = ((PlantGrowth) plantedCrop.GetComponent(typeof(PlantGrowth)));
+        int growthStages = plantGrowth.stages.Length;
+        int growthStage = plantGrowth.stage;
 
+        if (growthStage == growthStages - 1) {
+            Destroy(plantedCrop, 0);
+
+            // waterLevel = 0;
+            isPlanted = false;
+            isGrowing = false;
+            plantedSeed = null;
+            seedCrop = null;
+            plantedCrop = null;
+        }
     }
 
     void OnTriggerStay2D(Collider2D col) {
