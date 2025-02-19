@@ -10,6 +10,7 @@ TagManager:
   - Plot
   - SeedBag
   - ToolShed
+  - Bug
   layers:
   - Default
   - TransparentFX
