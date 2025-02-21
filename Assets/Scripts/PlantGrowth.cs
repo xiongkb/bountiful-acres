@@ -18,6 +18,7 @@ public class PlantGrowth : MonoBehaviour
     private float lastBugCheckTime = 0f;
     private List<GameObject> spawnedBugs = new List<GameObject>();
     private float newBugZ = 0f;
+    private bool selfDestructing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,14 +42,14 @@ public class PlantGrowth : MonoBehaviour
             updateTime += speed;
         }
 
-        if (stage > 0 && currTime - lastBugCheckTime >= bugCheckTime) {
+        if (!selfDestructing && stage > 0 && currTime - lastBugCheckTime >= bugCheckTime) {
             for (int i = 0; i < bugs.Length; i++) {
                 Bug bug = (Bug) bugs[i].GetComponent(typeof(Bug));
 
                 float randNum = Random.Range(0f, 1f);
 
                 if (1 - randNum >= bug.bugChance) {
-                    GameObject newBug = Instantiate(bugs[i], new Vector3(this.transform.position.x, this.transform.position.y, newBugZ), Quaternion.identity);
+                    spawnedBugs.Add(Instantiate(bugs[i], new Vector3(this.transform.position.x, this.transform.position.y, newBugZ), Quaternion.identity));
                     newBugZ = newBugZ - 0.01f;
                 }
             }
@@ -68,4 +69,14 @@ public class PlantGrowth : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
+    public void SelfDestruct() {
+        Debug.Log("TEST");
+        selfDestructing = true;
+
+        for (int i = 0; i < spawnedBugs.Count; i++) {
+            if (spawnedBugs[i] != null) Destroy(spawnedBugs[i]);
+        }
+
+        Destroy(gameObject);
+    }
 }

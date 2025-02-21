@@ -90,7 +90,7 @@ public class FarmPlot : MonoBehaviour
         int growthStage = plantGrowth.stage;
 
         if (growthStage == growthStages - 1) {
-            Destroy(plantedCrop, 0);
+            plantGrowth.SelfDestruct();
 
             // waterLevel = 0;
             isPlanted = false;
