@@ -62,7 +62,6 @@ public class PlantGrowth : MonoBehaviour
 
             if(hit.collider.tag == "Bug") Destroy(hit.collider.gameObject);
         }
-        
     }
 
     Vector2 GetMousePos() {
