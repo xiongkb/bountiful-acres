@@ -21,8 +21,8 @@ public class Inventory : MonoBehaviour
         strawberryText.SetText(strawberryCount.ToString());
     }
 
-    public void addStrawberry() {
-        strawberryCount++;
+    public void addStrawberry(int num) {
+        strawberryCount += num;
 
         strawberryText.SetText(strawberryCount.ToString());
     }

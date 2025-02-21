@@ -69,13 +69,20 @@ public class PlantGrowth : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    public void SelfDestruct() {
+    public void SelfDestruct(int tillLevel, int waterLevel) {
         Debug.Log("TEST");
         selfDestructing = true;
+        int bugCount = 0;
 
         for (int i = 0; i < spawnedBugs.Count; i++) {
-            if (spawnedBugs[i] != null) Destroy(spawnedBugs[i]);
+            if (spawnedBugs[i] != null) {
+                bugCount++;
+
+                Destroy(spawnedBugs[i]);
+            }
         }
+
+        Inventory.instance.addStrawberry((int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f));
 
         Destroy(gameObject);
     }

@@ -90,8 +90,7 @@ public class FarmPlot : MonoBehaviour
         int growthStage = plantGrowth.stage;
 
         if (growthStage == growthStages - 1) {
-            plantGrowth.SelfDestruct();
-            Inventory.instance.addStrawberry();
+            plantGrowth.SelfDestruct(tillLevel, waterLevel);
 
             // waterLevel = 0;
             isPlanted = false;
