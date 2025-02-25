@@ -72,7 +72,6 @@ public class PlantGrowth : MonoBehaviour
     }
 
     public void SelfDestruct(int tillLevel, int waterLevel) {
-        Debug.Log("TEST");
         selfDestructing = true;
         int bugCount = 0;
 

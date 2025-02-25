@@ -107,7 +107,9 @@ public class FarmPlot : MonoBehaviour
         if (farmTool != null) {
             // Debug.Log(farmTool.plot.name);
             if (gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) farmTool.plot = gameObject;
-                else if (farmTool.plot.name == gameObject.name) farmTool.plot = null;
+                else if (farmTool.plot != null) {
+                    if (farmTool.plot.name == gameObject.name) farmTool.plot = null;
+                }
         }
     }
 
@@ -119,19 +121,4 @@ public class FarmPlot : MonoBehaviour
         waterLevel = 0;
         spriteRenderer.color = new Color(1, 1, 1);
     }
-
-    // void OnTriggerEnter2D(Collider2D col) {
-    //     FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
-
-    //     if (farmTool != null) {
-    //         if (gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) farmTool.plot = gameObject;
-    //     }
-    // }
-
-    // void OnTriggerExit2D(Collider2D col) {
-    //     Debug.Log("TEST100");
-    //     FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
-
-    //     if (farmTool != null && farmTool.plot.name == gameObject.name) farmTool.plot = null;
-    // }
 }

@@ -2791,7 +2791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaText: {fileID: 993605740}
-  maxStamina: 10
+  maxStamina: 100
 --- !u!4 &1999732035
 Transform:
   m_ObjectHideFlags: 0
