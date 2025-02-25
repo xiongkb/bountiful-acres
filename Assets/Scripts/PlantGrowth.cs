@@ -61,7 +61,9 @@ public class PlantGrowth : MonoBehaviour
             Vector2 mousePos = GetMousePos();
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-            if(hit.collider.tag == "Bug") Destroy(hit.collider.gameObject);
+            if(hit.collider.tag == "Bug") {
+                if (Manager.instance.UseStamina(1)) Destroy(hit.collider.gameObject);
+            }
         }
     }
 

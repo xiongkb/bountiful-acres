@@ -34,16 +34,16 @@ public class FarmTool : MonoBehaviour
                 // tool functions
                 switch(tool.tag) {
                     case "Hoe":
-                        farmPlot.Till();
+                        if (Manager.instance.UseStamina(2)) farmPlot.Till();
                         break;
                     case "SeedBag":
-                        farmPlot.Plant(seed, crop);
+                        if (Manager.instance.UseStamina(1)) farmPlot.Plant(seed, crop);
                         break;
                     case "WateringCan":
-                        farmPlot.Water();
+                        if (Manager.instance.UseStamina(2)) farmPlot.Water();
                         break;
                     case "Scythe":
-                        farmPlot.Harvest();
+                        if (Manager.instance.UseStamina(3)) farmPlot.Harvest();
                         break;
                     default:
                         break;
