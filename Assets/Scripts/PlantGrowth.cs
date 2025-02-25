@@ -86,4 +86,9 @@ public class PlantGrowth : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    public void NewDay() {
+        stage = stages.Length - 1;
+        spriteRenderer.sprite = stages[stages.Length - 1];
+    }
 }

@@ -114,6 +114,11 @@ public class FarmPlot : MonoBehaviour
     Vector2 GetMousePos() {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
+    
+    public void NewDay() {
+        waterLevel = 0;
+        spriteRenderer.color = new Color(1, 1, 1);
+    }
 
     // void OnTriggerEnter2D(Collider2D col) {
     //     FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
