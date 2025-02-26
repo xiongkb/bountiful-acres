@@ -11,7 +11,7 @@ public class Mail : MonoBehaviour
     [SerializeField] Button acceptButton;
     [SerializeField] Button rejectButton;
     [SerializeField] Button shipButton;
-    [SerializeField] Button leftButton;
+    public Button leftButton;
     public Button rightButton;
     public Canvas mailCanvas;
     string crop;
@@ -44,7 +44,7 @@ public class Mail : MonoBehaviour
 
     public void Reject()
     {
-        Destroy(gameObject);
+       MailManager.instance.RemoveLetter(letterNum);
     }
 
     public void PreviousLetter() {

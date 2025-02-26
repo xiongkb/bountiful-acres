@@ -26,12 +26,6 @@ public class MailManager : MonoBehaviour
         letters = new Mail[numLetters];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(letters);
-    }
-
     public void GenerateLetter()
     {
         for (int i = 0; i < letters.Length; i++)
@@ -51,6 +45,7 @@ public class MailManager : MonoBehaviour
                 if (i > 0)
                 {
                     letters[i - 1].rightButton.interactable = true;
+                    letters[i - 1].gameObject.SetActive(false);
                 }
 
                 break;
@@ -60,22 +55,64 @@ public class MailManager : MonoBehaviour
 
     public void RemoveLetter(int letterNum)
     {
-        
+        Destroy(letters[letterNum].gameObject);
+        letters[letterNum] = null;
+
+        for(int i = letterNum; i < letters.Length - 1; i++)
+        {
+            letters[i] = letters[i + 1];
+            
+            if(letters[i] == null)
+                break;
+            else
+            {
+                letters[i].letterNum = i;
+
+                if(i == letters.Length - 2)
+                    letters[letters.Length - 1] = null;
+            }
+        }
+
+        if(letters[letterNum] != null)
+        {
+            letters[letterNum].gameObject.SetActive(true);
+
+            for(int i = letters.Length - 1; i >= 0; i--)
+            {
+                if(letters[i] != null)
+                {
+                    letters[i].rightButton.interactable = false;
+
+                    if(i == 0)
+                        letters[0].leftButton.interactable = false;
+
+                    break;
+                }
+            }
+        }
+        else if(letterNum > 0)
+        {
+            letters[letterNum - 1].gameObject.SetActive(true);
+
+            letters[letterNum - 1].rightButton.interactable = false;
+        }
     }
 
     public void SetActiveLetter(int letterNum)
     {
         for(int i = 0; i < letters.Length; i++)
         {
+            // Debug.Log(i);
             if(letters[i] != null)
             {
+                
                 if(i == letterNum)
                 {
-                    letters[i].mailCanvas.sortingOrder = 1;
+                    letters[i].gameObject.SetActive(true);
                 }
                 else
                 {
-                    letters[i].mailCanvas.sortingOrder = 0;
+                    letters[i].gameObject.SetActive(false);
                 }
             }
         }
