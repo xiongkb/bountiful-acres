@@ -11,21 +11,11 @@ public class Mail : MonoBehaviour
     [SerializeField] Button acceptButton;
     [SerializeField] Button rejectButton;
     [SerializeField] Button shipButton;
+    [SerializeField] Button leftButton;
+    [SerializeField] Button rightButton;
     string crop;
     int num;
     public int letterNum;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum)
     {
@@ -37,6 +27,12 @@ public class Mail : MonoBehaviour
         tmpName.SetText(newName);
 
         tmpMessage.SetText(generatedMessage);
+
+        if(letterNum == 0)
+            leftButton.interactable = false;
+
+        if(letterNum >= MailManager.instance.numLetters - 1)
+            rightButton.interactable = false;
     }
 
     public void Accept()
@@ -44,5 +40,10 @@ public class Mail : MonoBehaviour
         acceptButton.gameObject.SetActive(false);
         rejectButton.gameObject.SetActive(false);
         shipButton.gameObject.SetActive(true);
+    }
+
+    public void Reject()
+    {
+        Destroy(gameObject);
     }
 }

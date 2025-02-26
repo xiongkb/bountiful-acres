@@ -6,7 +6,7 @@ public class MailManager : MonoBehaviour
 {
     public static MailManager instance;
     [SerializeField] Mail mailLetterPrefab;
-    [SerializeField] int numLetters;
+    public int numLetters;
     [SerializeField] int minNum;
     [SerializeField] int maxNum;
     [SerializeField] string[] names;
@@ -29,7 +29,7 @@ public class MailManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(letters[0]);
     }
 
     public void GenerateLetter()
@@ -51,5 +51,10 @@ public class MailManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void RemoveLetter(int letterNum)
+    {
+        
     }
 }

@@ -2940,6 +2940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mail Letter
       objectReference: {fileID: 0}
+    - target: {fileID: 3788916183520207924, guid: 0867f32d212b43d41b95332168bf3732, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5649932133344783337, guid: 0867f32d212b43d41b95332168bf3732, type: 3}
       propertyPath: m_Pivot.x
       value: 0
