@@ -29,7 +29,7 @@ public class MailManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(letters[0]);
+        Debug.Log(letters);
     }
 
     public void GenerateLetter()
@@ -48,6 +48,11 @@ public class MailManager : MonoBehaviour
 
                 mail.SetLetter(i, name, message, crop, num);
 
+                if (i > 0)
+                {
+                    letters[i - 1].rightButton.interactable = true;
+                }
+
                 break;
             }
         }
@@ -56,5 +61,23 @@ public class MailManager : MonoBehaviour
     public void RemoveLetter(int letterNum)
     {
         
+    }
+
+    public void SetActiveLetter(int letterNum)
+    {
+        for(int i = 0; i < letters.Length; i++)
+        {
+            if(letters[i] != null)
+            {
+                if(i == letterNum)
+                {
+                    letters[i].mailCanvas.sortingOrder = 1;
+                }
+                else
+                {
+                    letters[i].mailCanvas.sortingOrder = 0;
+                }
+            }
+        }
     }
 }
