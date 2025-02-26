@@ -6,11 +6,13 @@ public class MailManager : MonoBehaviour
 {
     public static MailManager instance;
     [SerializeField] Mail mailLetterPrefab;
+    [SerializeField] int numLetters;
     [SerializeField] int minNum;
     [SerializeField] int maxNum;
     [SerializeField] string[] names;
     [SerializeField] string[] messages;
     string[] crops;
+    Mail[] letters = { null, null, null, null, null };
 
     void Awake()
     {
@@ -21,7 +23,7 @@ public class MailManager : MonoBehaviour
     void Start()
     {
         crops = Manager.instance.crops;
-        Debug.Log(crops[0]);
+        letters = new Mail[numLetters];
     }
 
     // Update is called once per frame
@@ -32,13 +34,22 @@ public class MailManager : MonoBehaviour
 
     public void GenerateLetter()
     {
-        string name = names[Random.Range(0, names.Length)];
-        string message = messages[Random.Range(0, messages.Length)];
-        string crop = crops[Random.Range(0, crops.Length)];
-        int num = Random.Range(minNum, maxNum);
-        Vector2 mailPos = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
-        Mail mail = Instantiate(mailLetterPrefab, mailPos, Quaternion.identity) as Mail;
+        for (int i = 0; i < letters.Length; i++)
+        {
+            if (letters[i] == null)
+            {
+                string name = names[Random.Range(0, names.Length)];
+                string message = messages[Random.Range(0, messages.Length)];
+                string crop = crops[Random.Range(0, crops.Length)];
+                int num = Random.Range(minNum, maxNum);
+                Vector2 mailPos = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
+                Mail mail = Instantiate(mailLetterPrefab, mailPos, Quaternion.identity) as Mail;
+                letters[i] = mail;
 
-        mail.SetLetter(name, message, crop, num);
+                mail.SetLetter(i, name, message, crop, num);
+
+                break;
+            }
+        }
     }
 }

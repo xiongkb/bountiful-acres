@@ -9,6 +9,7 @@ public class Mail : MonoBehaviour
     [SerializeField] TMP_Text tmpMessage;
     string crop;
     int num;
+    public int letterNum;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,9 @@ public class Mail : MonoBehaviour
         
     }
 
-    public void SetLetter(string newName, string newMessage, string newCrop, int newNum)
+    public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum)
     {
+        letterNum = newLetterNum;
         string generatedMessage = newMessage;
         generatedMessage = generatedMessage.Replace("<crop>", newCrop);
         generatedMessage = generatedMessage.Replace("<num>", newNum.ToString());
