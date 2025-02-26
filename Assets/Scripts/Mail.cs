@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Mail : MonoBehaviour
 {
     [SerializeField] TMP_Text tmpName;
     [SerializeField] TMP_Text tmpMessage;
+    [SerializeField] Button acceptButton;
+    [SerializeField] Button rejectButton;
+    [SerializeField] Button shipButton;
     string crop;
     int num;
     public int letterNum;
@@ -33,5 +37,12 @@ public class Mail : MonoBehaviour
         tmpName.SetText(newName);
 
         tmpMessage.SetText(generatedMessage);
+    }
+
+    public void Accept()
+    {
+        acceptButton.gameObject.SetActive(false);
+        rejectButton.gameObject.SetActive(false);
+        shipButton.gameObject.SetActive(true);
     }
 }
