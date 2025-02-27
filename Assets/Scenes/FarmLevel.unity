@@ -2853,9 +2853,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crops:
   - strawberrie
-  - sumo tangerine
-  - steak
-  - vanilla coke
   staminaText: {fileID: 993605740}
   maxStamina: 100
 --- !u!4 &1999732035
@@ -2886,6 +2883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strawberryText: {fileID: 1768369907}
+  strawberryCount: 0
 --- !u!114 &1999732037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2912,6 +2910,12 @@ MonoBehaviour:
   - Can I buy some <crop>s? <num> would be good.
   - Please send me <num> of your finest <crop>s.
   - Do you sell <crop>s? If so, I'll take <num>.
+  letters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1999732038
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,14 @@ public class Mail : MonoBehaviour
     int num;
     public int letterNum;
 
+    void Update()
+    {
+        if(Inventory.instance.strawberryCount >= num)
+            rejectButton.interactable = true;
+        else
+            rejectButton.interactable = false;
+    }
+
     public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum)
     {
         letterNum = newLetterNum;
@@ -33,6 +41,11 @@ public class Mail : MonoBehaviour
             leftButton.interactable = false;
 
         rightButton.interactable = false;
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(false);
     }
 
     public void Accept()

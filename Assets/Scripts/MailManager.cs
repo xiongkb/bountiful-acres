@@ -12,7 +12,7 @@ public class MailManager : MonoBehaviour
     [SerializeField] string[] names;
     [SerializeField] string[] messages;
     string[] crops;
-    Mail[] letters = { null, null, null, null, null };
+    public Mail[] letters = { null, null, null, null, null };
 
     void Awake()
     {

@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     public TMP_Text strawberryText;
-    int strawberryCount = 0;
+    public int strawberryCount = 0;
 
     private void Awake() {
         instance = this;
