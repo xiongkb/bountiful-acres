@@ -655,7 +655,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3356807615161786971}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 852755875464967344}
+        m_TargetAssemblyTypeName: Mail, Assembly-CSharp
+        m_MethodName: Ship
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2163822574569325089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1198,6 @@ MonoBehaviour:
   shipButton: {fileID: 7424408837251723870}
   leftButton: {fileID: 4606720127144458220}
   rightButton: {fileID: 8381160681632994772}
-  mailCanvas: {fileID: 2768067930764715296}
   letterNum: 0
 --- !u!1 &4815122002520158687
 GameObject:

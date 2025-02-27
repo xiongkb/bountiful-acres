@@ -13,7 +13,6 @@ public class Mail : MonoBehaviour
     [SerializeField] Button shipButton;
     public Button leftButton;
     public Button rightButton;
-    public Canvas mailCanvas;
     string crop;
     int num;
     public int letterNum;
@@ -21,9 +20,9 @@ public class Mail : MonoBehaviour
     void Update()
     {
         if(Inventory.instance.strawberryCount >= num)
-            rejectButton.interactable = true;
+            shipButton.interactable = true;
         else
-            rejectButton.interactable = false;
+            shipButton.interactable = false;
     }
 
     public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum)
@@ -32,6 +31,7 @@ public class Mail : MonoBehaviour
         string generatedMessage = newMessage;
         generatedMessage = generatedMessage.Replace("<crop>", newCrop);
         generatedMessage = generatedMessage.Replace("<num>", newNum.ToString());
+        num = newNum;
 
         tmpName.SetText(newName);
 
@@ -58,6 +58,12 @@ public class Mail : MonoBehaviour
     public void Reject()
     {
        MailManager.instance.RemoveLetter(letterNum);
+    }
+
+    public void Ship()
+    {
+        Inventory.instance.addStrawberry(-num);
+        MailManager.instance.RemoveLetter(letterNum);
     }
 
     public void PreviousLetter() {
