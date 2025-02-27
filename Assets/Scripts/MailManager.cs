@@ -60,10 +60,7 @@ public class MailManager : MonoBehaviour
                 mail.gameObject.SetActive(false);
 
                 if (i > 0)
-                {
                     letters[i - 1].rightButton.interactable = true;
-                    letters[i - 1].gameObject.SetActive(false);
-                }
 
                 break;
             }

@@ -6,8 +6,7 @@ public class Mailbox : MonoBehaviour
 {
     void Update()
     {
-        // if(Input.GetMouseButtonDown(0) && Utilities.instance.isOverlappingMouse(gameObject))
-        //     if(MailManager.instance.letters[MailManager.instance.letters.Length - 1] != null)
-        //         MailManager.instance.GenerateLetter();
+        if(Input.GetMouseButtonDown(0) && Utilities.instance.isOverlappingMouse(gameObject) && MailManager.instance.letters[0] != null)
+            MailManager.instance.letters[0].gameObject.SetActive(true);
     }
 }
