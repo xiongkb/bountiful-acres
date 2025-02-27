@@ -13,6 +13,9 @@ public class MailManager : MonoBehaviour
     [SerializeField] string[] messages;
     string[] crops;
     public Mail[] letters = { null, null, null, null, null };
+    float currTime = 0f;
+    float lastMailTime = 0f;
+    [SerializeField] float newMailTime;
 
     void Awake()
     {
@@ -26,7 +29,20 @@ public class MailManager : MonoBehaviour
         letters = new Mail[numLetters];
     }
 
-    public void GenerateLetter()
+    void Update()
+    {
+        currTime += Time.deltaTime;
+
+        if(currTime - newMailTime >= lastMailTime)
+        {
+            lastMailTime += newMailTime;
+            
+            if(letters[letters.Length - 1] == null)
+                GenerateLetter();
+        }
+    }
+
+    void GenerateLetter()
     {
         for (int i = 0; i < letters.Length; i++)
         {
@@ -41,6 +57,7 @@ public class MailManager : MonoBehaviour
                 letters[i] = mail;
 
                 mail.SetLetter(i, name, message, crop, num);
+                mail.gameObject.SetActive(false);
 
                 if (i > 0)
                 {

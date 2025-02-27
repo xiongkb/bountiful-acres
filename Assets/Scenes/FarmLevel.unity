@@ -2916,6 +2916,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  newMailTime: 5
 --- !u!114 &1999732038
 MonoBehaviour:
   m_ObjectHideFlags: 0
