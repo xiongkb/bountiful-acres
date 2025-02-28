@@ -90,7 +90,7 @@ public class FarmPlot : MonoBehaviour
         int growthStage = plantGrowth.stage;
 
         if (growthStage == growthStages - 1) {
-            Destroy(plantedCrop, 0);
+            plantGrowth.SelfDestruct(tillLevel, waterLevel);
 
             // waterLevel = 0;
             isPlanted = false;
@@ -107,26 +107,18 @@ public class FarmPlot : MonoBehaviour
         if (farmTool != null) {
             // Debug.Log(farmTool.plot.name);
             if (gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) farmTool.plot = gameObject;
-                else if (farmTool.plot.name == gameObject.name) farmTool.plot = null;
+                else if (farmTool.plot != null) {
+                    if (farmTool.plot.name == gameObject.name) farmTool.plot = null;
+                }
         }
     }
 
     Vector2 GetMousePos() {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
-
-    // void OnTriggerEnter2D(Collider2D col) {
-    //     FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
-
-    //     if (farmTool != null) {
-    //         if (gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) farmTool.plot = gameObject;
-    //     }
-    // }
-
-    // void OnTriggerExit2D(Collider2D col) {
-    //     Debug.Log("TEST100");
-    //     FarmTool farmTool = (FarmTool) col.GetComponent(typeof(FarmTool));
-
-    //     if (farmTool != null && farmTool.plot.name == gameObject.name) farmTool.plot = null;
-    // }
+    
+    public void NewDay() {
+        waterLevel = 0;
+        spriteRenderer.color = new Color(1, 1, 1);
+    }
 }

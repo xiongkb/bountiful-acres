@@ -18,6 +18,7 @@ public class PlantGrowth : MonoBehaviour
     private float lastBugCheckTime = 0f;
     private List<GameObject> spawnedBugs = new List<GameObject>();
     private float newBugZ = 0f;
+    private bool selfDestructing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,14 +42,14 @@ public class PlantGrowth : MonoBehaviour
             updateTime += speed;
         }
 
-        if (stage > 0 && currTime - lastBugCheckTime >= bugCheckTime) {
+        if (!selfDestructing && stage > 0 && currTime - lastBugCheckTime >= bugCheckTime) {
             for (int i = 0; i < bugs.Length; i++) {
                 Bug bug = (Bug) bugs[i].GetComponent(typeof(Bug));
 
                 float randNum = Random.Range(0f, 1f);
 
                 if (1 - randNum >= bug.bugChance) {
-                    GameObject newBug = Instantiate(bugs[i], new Vector3(this.transform.position.x, this.transform.position.y, newBugZ), Quaternion.identity);
+                    spawnedBugs.Add(Instantiate(bugs[i], new Vector3(this.transform.position.x, this.transform.position.y, newBugZ), Quaternion.identity));
                     newBugZ = newBugZ - 0.01f;
                 }
             }
@@ -60,13 +61,35 @@ public class PlantGrowth : MonoBehaviour
             Vector2 mousePos = GetMousePos();
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-            if(hit.collider.tag == "Bug") Destroy(hit.collider.gameObject);
+            if(hit.collider.tag == "Bug") {
+                if (Manager.instance.UseStamina(1)) Destroy(hit.collider.gameObject);
+            }
         }
-        
     }
 
     Vector2 GetMousePos() {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
+    public void SelfDestruct(int tillLevel, int waterLevel) {
+        selfDestructing = true;
+        int bugCount = 0;
+
+        for (int i = 0; i < spawnedBugs.Count; i++) {
+            if (spawnedBugs[i] != null) {
+                bugCount++;
+
+                Destroy(spawnedBugs[i]);
+            }
+        }
+
+        Inventory.instance.addStrawberry((int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f));
+
+        Destroy(gameObject);
+    }
+
+    public void NewDay() {
+        stage = stages.Length - 1;
+        spriteRenderer.sprite = stages[stages.Length - 1];
+    }
 }

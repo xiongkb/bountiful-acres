@@ -22,39 +22,41 @@ public class FarmTool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dragging) return;
+        if (dragging) transform.position = GetMousePos();
 
-        transform.position = GetMousePos();
+        if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) {
+            if (dragging == false) {
+                dragging = true;
+                transform.position = GetMousePos();
+            } else if (plot != null) {
+                FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
+
+                // tool functions
+                switch(tool.tag) {
+                    case "Hoe":
+                        if (Manager.instance.UseStamina(2)) farmPlot.Till();
+                        break;
+                    case "SeedBag":
+                        if (Manager.instance.UseStamina(1)) farmPlot.Plant(seed, crop);
+                        break;
+                    case "WateringCan":
+                        if (Manager.instance.UseStamina(2)) farmPlot.Water();
+                        break;
+                    case "Scythe":
+                        if (Manager.instance.UseStamina(3)) farmPlot.Harvest();
+                        break;
+                    default:
+                        break;
+                }  
+            } else if (onToolShed) {
+                dragging = false;
+                this.transform.position = startPos;
+            }
+        }
     }
 
     void OnMouseDown() {
-        if (dragging == false) {
-            dragging = true;
-            transform.position = GetMousePos();
-        } else if (plot != null) {
-            FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
-
-            // tool functions
-            switch(tool.tag) {
-                case "Hoe":
-                    farmPlot.Till();
-                    break;
-                case "SeedBag":
-                    farmPlot.Plant(seed, crop);
-                    break;
-                case "WateringCan":
-                    farmPlot.Water();
-                    break;
-                case "Scythe":
-                    farmPlot.Harvest();
-                    break;
-                default:
-                    break;
-            }  
-        } else if (onToolShed) {
-            dragging = false;
-            this.transform.position = startPos;
-        }
+        
     }
 
     Vector2 GetMousePos() {
