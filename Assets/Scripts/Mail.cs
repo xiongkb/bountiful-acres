@@ -63,6 +63,7 @@ public class Mail : MonoBehaviour
     public void Ship()
     {
         Inventory.instance.addStrawberry(-num);
+        Experience.instance.AddExperience(num);
         MailManager.instance.RemoveLetter(letterNum);
     }
 
