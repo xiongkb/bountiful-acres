@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -1130825019
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 84464b466f72c0446b2e5f4dba3c9b81, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa019c7e15683438d8f8c785d4dd0838, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2023573415766962033}
-  tilledSprite1: {fileID: 21300000, guid: b8dbf4e5417a1e64dbf70f669dc5e079, type: 3}
-  tilledSprite2: {fileID: 21300000, guid: e9bd5bfb3df775d4ba2596e74e2d4290, type: 3}
-  tilledSprite3: {fileID: 21300000, guid: d0e96173b61e64b479dcf15046ba7977, type: 3}
+  tilledSprite1: {fileID: 21300000, guid: f79f82ef2724947c0aaf6f96fa5bd6b5, type: 3}
+  tilledSprite2: {fileID: 21300000, guid: 7acfae7b9eb7441debb33702c38cfc29, type: 3}
+  tilledSprite3: {fileID: 21300000, guid: a8f73bf24ead24093b3c14c2800c3f43, type: 3}
 --- !u!61 &7764736971736170054
 BoxCollider2D:
   m_ObjectHideFlags: 0
