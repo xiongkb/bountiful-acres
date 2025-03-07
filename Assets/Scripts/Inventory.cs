@@ -9,6 +9,13 @@ public class Inventory : MonoBehaviour
     public TMP_Text strawberryText;
     public int strawberryCount = 0;
 
+    public TMP_Text carrotText;
+    public int carrotCount = 0;
+
+    public TMP_Text potatoText;
+    public int potatoCount = 0;
+
+
     private void Awake() {
         instance = this;
     }
@@ -17,11 +24,25 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         strawberryText.SetText(strawberryCount.ToString());
+        carrotText.SetText(carrotCount.ToString());
+        potatoText.SetText(potatoCount.ToString());
     }
 
     public void addStrawberry(int num) {
         strawberryCount += num;
 
         strawberryText.SetText(strawberryCount.ToString());
+    }
+
+    public void addCarrot(int num) {
+        carrotCount += num;
+
+        carrotText.SetText(carrotCount.ToString());
+    }
+
+    public void addPotato(int num) {
+        potatoCount += num;
+
+        potatoText.SetText(potatoCount.ToString());
     }
 }
