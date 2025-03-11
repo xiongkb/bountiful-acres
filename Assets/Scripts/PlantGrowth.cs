@@ -83,7 +83,21 @@ public class PlantGrowth : MonoBehaviour
             }
         }
 
-        Inventory.instance.addStrawberry((int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f));
+        int numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f);
+
+        switch (gameObject.tag) {
+            case "Strawberry":
+                Inventory.instance.addStrawberry(numCrop);
+                break;
+            case "Carrot":
+                Inventory.instance.addCarrot(numCrop);
+                break;
+            case "Potato":
+                Inventory.instance.addPotato(numCrop);
+                break;
+            default:
+                break;
+        }
 
         Destroy(gameObject);
     }
