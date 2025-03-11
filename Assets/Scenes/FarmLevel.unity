@@ -5335,6 +5335,7 @@ GameObject:
   - component: {fileID: 1999732035}
   - component: {fileID: 1999732034}
   - component: {fileID: 1999732036}
+  - component: {fileID: 1999732040}
   - component: {fileID: 1999732037}
   - component: {fileID: 1999732038}
   - component: {fileID: 1999732039}
@@ -5411,7 +5412,7 @@ MonoBehaviour:
   mailLetterPrefab: {fileID: 852755875464967344, guid: 0867f32d212b43d41b95332168bf3732, type: 3}
   numLetters: 5
   minNum: 3
-  maxNum: 50
+  maxNum: 5
   names:
   - Johnathan
   - Janey
@@ -5435,7 +5436,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  newMailTime: 10
+  newMailTime: 1
 --- !u!114 &1999732038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5460,6 +5461,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d999f1f64eb3c394f939d9b366b5dc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1999732040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999732033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27de12d6cb095444fa88c7d0bf347c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experienceMultiplier: 0
+  experienceDisplay: {fileID: 1489209107}
 --- !u!1 &2010966702
 GameObject:
   m_ObjectHideFlags: 0
