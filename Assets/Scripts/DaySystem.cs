@@ -18,7 +18,7 @@ public class DaySystem : MonoBehaviour
         dayCountText.SetText(dayCount.ToString());
     }
 
-    public bool EndDay() {
+    public bool NewDay() {
         if (dayCount == maxDayCount) return false;
 
         dayCount++;
