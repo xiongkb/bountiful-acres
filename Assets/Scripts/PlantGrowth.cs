@@ -48,7 +48,7 @@ public class PlantGrowth : MonoBehaviour
 
                 float randNum = Random.Range(0f, 1f);
 
-                if (1 - randNum >= bug.bugChance) {
+                if (1 - randNum <= bug.bugChance) {
                     spawnedBugs.Add(Instantiate(bugs[i], new Vector3(this.transform.position.x, this.transform.position.y, newBugZ), Quaternion.identity));
                     newBugZ = newBugZ - 0.01f;
                 }

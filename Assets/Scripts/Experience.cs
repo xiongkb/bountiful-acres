@@ -8,7 +8,7 @@ public class Experience : MonoBehaviour
     [SerializeField] int experienceMultiplier;
     public static Experience instance;
     public TMP_Text experienceDisplay;
-    int experience = 0;
+    public int experience = 0;
 
     void Awake()
     {

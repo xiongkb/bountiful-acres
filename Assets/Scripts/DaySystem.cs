@@ -8,7 +8,7 @@ public class DaySystem : MonoBehaviour
     public static DaySystem instance;
     public TMP_Text dayCountText;
     public int maxDayCount;
-    int dayCount = 1;
+    public int dayCount = 1;
 
     private void Awake() {
         instance = this;

@@ -21,6 +21,8 @@ public class EndDay : MonoBehaviour
             for (int i = 0; i < plantGrowths.Length; i++) plantGrowths[i].NewDay();
 
             Manager.instance.NewDay();
+
+            MailManager.instance.NewDay();
         }
     }
 
