@@ -26,6 +26,11 @@ public class Manager : MonoBehaviour
         return true;
     }
 
+    public void NewDay() {
+        stamina = maxStamina;
+        updateStaminaText();
+    }
+
     void updateStaminaText() {
         staminaText.SetText(stamina.ToString() + "/" + maxStamina.ToString());
     }
@@ -37,11 +42,4 @@ public class Manager : MonoBehaviour
 
         updateStaminaText();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 }
