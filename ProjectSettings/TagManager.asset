@@ -11,6 +11,9 @@ TagManager:
   - SeedBag
   - ToolShed
   - Bug
+  - Carrot
+  - Potato
+  - Strawberry
   layers:
   - Default
   - TransparentFX

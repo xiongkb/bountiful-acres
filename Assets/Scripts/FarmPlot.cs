@@ -78,7 +78,7 @@ public class FarmPlot : MonoBehaviour
 
         Destroy(plantedSeed, 0);
 
-        plantedCrop = Instantiate(seedCrop, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+        plantedCrop = Instantiate(seedCrop, new Vector2(this.transform.position.x, this.transform.position.y + .7f), Quaternion.identity);
         isGrowing = true;
     }
 
