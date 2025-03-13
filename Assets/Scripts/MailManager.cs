@@ -31,14 +31,26 @@ public class MailManager : MonoBehaviour
 
     void Update()
     {
-        currTime += Time.deltaTime;
+        // currTime += Time.deltaTime;
 
-        if(currTime - newMailTime >= lastMailTime)
-        {
-            lastMailTime += newMailTime;
+        // if(currTime - newMailTime >= lastMailTime)
+        // {
+        //     lastMailTime += newMailTime;
             
-            if(letters[letters.Length - 1] == null)
-                GenerateLetter();
+        //     if(letters[letters.Length - 1] == null)
+        //         GenerateLetter();
+        // }
+    }
+
+    public void NewDay() {
+        float mailChance = (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
+
+        for (int i = 0; i < letters.Length; i++) {
+            if (letters[i] == null) {
+                float randNum = Random.Range(0f, 100f);
+
+                if (100f - randNum <= mailChance) GenerateLetter();
+            }
         }
     }
 

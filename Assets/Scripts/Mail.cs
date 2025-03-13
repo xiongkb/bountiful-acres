@@ -19,15 +19,35 @@ public class Mail : MonoBehaviour
 
     void Update()
     {
-        if(Inventory.instance.strawberryCount >= num)
+        int currentCropNum = 0;
+
+        switch (crop) {
+            case "strawberrie":
+                currentCropNum = Inventory.instance.strawberryCount;
+                break;
+            case "carrot":
+                currentCropNum = Inventory.instance.carrotCount;
+                break;
+            case "potatoe":
+                currentCropNum = Inventory.instance.potatoCount;
+                break;
+            default:
+                break;
+        }
+
+        if(currentCropNum >= num)
             shipButton.interactable = true;
         else
             shipButton.interactable = false;
+
+        if(letterNum == 0)
+            leftButton.interactable = false;
     }
 
     public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum)
     {
         letterNum = newLetterNum;
+        crop = newCrop;
         string generatedMessage = newMessage;
         generatedMessage = generatedMessage.Replace("<crop>", newCrop);
         generatedMessage = generatedMessage.Replace("<num>", newNum.ToString());
@@ -62,7 +82,21 @@ public class Mail : MonoBehaviour
 
     public void Ship()
     {
-        Inventory.instance.addStrawberry(-num);
+        switch (crop) {
+            case "strawberrie":
+                Inventory.instance.addStrawberry(-num);
+                break;
+            case "carrot":
+                Inventory.instance.addCarrot(-num);
+                break;
+            case "potatoe":
+                Inventory.instance.addPotato(-num);
+                break;
+            default:
+                break;
+        }
+
+        Experience.instance.AddExperience(num);
         MailManager.instance.RemoveLetter(letterNum);
     }
 

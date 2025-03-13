@@ -48,8 +48,11 @@ public class PlantGrowth : MonoBehaviour
 
                 float randNum = Random.Range(0f, 1f);
 
-                if (1 - randNum >= bug.bugChance) {
-                    spawnedBugs.Add(Instantiate(bugs[i], new Vector3(this.transform.position.x, this.transform.position.y, newBugZ), Quaternion.identity));
+                if (1 - randNum <= bug.bugChance) {
+                    float randX = Random.Range(-1.3f, .3f);
+                    float randY = Random.Range(-1.3f, .3f);
+
+                    spawnedBugs.Add(Instantiate(bugs[i], new Vector3(this.transform.position.x + randX, this.transform.position.y + randY, newBugZ), Quaternion.identity));
                     newBugZ = newBugZ - 0.01f;
                 }
             }
@@ -83,7 +86,21 @@ public class PlantGrowth : MonoBehaviour
             }
         }
 
-        Inventory.instance.addStrawberry((int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f));
+        int numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f);
+
+        switch (gameObject.tag) {
+            case "Strawberry":
+                Inventory.instance.addStrawberry(numCrop);
+                break;
+            case "Carrot":
+                Inventory.instance.addCarrot(numCrop);
+                break;
+            case "Potato":
+                Inventory.instance.addPotato(numCrop);
+                break;
+            default:
+                break;
+        }
 
         Destroy(gameObject);
     }
