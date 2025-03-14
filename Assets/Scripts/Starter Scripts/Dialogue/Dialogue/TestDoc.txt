@@ -1,0 +1,4 @@
+[SPEAKERSPRITE=Dad]Oh man there's no sprite right now or name!
+[NAME=Dad]Why hello there! Now i have a name!
+[NAME=Dad][SPEAKERSPRITE=Dad]This is a test script to make sure your dialogue is working!
+[NAME=Dad][SPEAKERSPRITE=Dad]You can even change text !
