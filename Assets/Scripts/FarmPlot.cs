@@ -26,11 +26,10 @@ public class FarmPlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (currentTool != null && !gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) {
-        //     FarmTool farmTool = (FarmTool) currentTool.GetComponent(typeof(FarmTool));
-        //     farmTool.plot = null;
-        //     currentTool = null;
-        // }
+        if (plantedCrop != null && Input.GetMouseButtonDown(0) && Utilities.instance.isOverlappingMouse(gameObject)) {
+            PlantGrowth plantGrowth = ((PlantGrowth) plantedCrop.GetComponent(typeof(PlantGrowth)));
+            plantGrowth.CheckBug(Utilities.instance.GetMousePos());
+        }
     }
 
     public void Till() {
