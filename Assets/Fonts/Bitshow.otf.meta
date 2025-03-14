@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db20ee5b35ced4160a5163cd2b19d39d
+guid: d6cbc84008210412d8be3a339606a74f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - AgreloyOut1
+  - Bitshow
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
