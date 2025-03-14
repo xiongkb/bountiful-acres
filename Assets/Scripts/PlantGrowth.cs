@@ -49,8 +49,8 @@ public class PlantGrowth : MonoBehaviour
                 float randNum = Random.Range(0f, 1f);
 
                 if (1 - randNum <= bug.bugChance) {
-                    float randX = Random.Range(-1.3f, .3f);
-                    float randY = Random.Range(-1.3f, .3f);
+                    float randX = Random.Range(-0.7f, 0.7f);
+                    float randY = Random.Range(-1.2f, 0.1f);
 
                     spawnedBugs.Add(Instantiate(bugs[i], new Vector3(this.transform.position.x + randX, this.transform.position.y + randY, newBugZ), Quaternion.identity));
                     newBugZ = newBugZ - 0.01f;
@@ -59,14 +59,13 @@ public class PlantGrowth : MonoBehaviour
 
             lastBugCheckTime = currTime;
         }
+    }
 
-        if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) {
-            Vector2 mousePos = GetMousePos();
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+    public void CheckBug(Vector2 mousePos) {
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-            if(hit.collider.tag == "Bug") {
-                if (Manager.instance.UseStamina(1)) Destroy(hit.collider.gameObject);
-            }
+        if(hit.collider.tag == "Bug") {
+            if (Manager.instance.UseStamina(1)) Destroy(hit.collider.gameObject);
         }
     }
 
