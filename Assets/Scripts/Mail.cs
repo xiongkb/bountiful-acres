@@ -8,6 +8,7 @@ public class Mail : MonoBehaviour
 {
     [SerializeField] TMP_Text tmpName;
     [SerializeField] TMP_Text tmpMessage;
+    [SerializeField] TMP_Text tmpExpiration;
     [SerializeField] Button acceptButton;
     [SerializeField] Button rejectButton;
     [SerializeField] Button shipButton;
@@ -15,6 +16,7 @@ public class Mail : MonoBehaviour
     public Button rightButton;
     string crop;
     int num;
+    int daysLeft;
     public int letterNum;
 
     void Update()
@@ -44,7 +46,7 @@ public class Mail : MonoBehaviour
             leftButton.interactable = false;
     }
 
-    public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum)
+    public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum, int days)
     {
         letterNum = newLetterNum;
         crop = newCrop;
@@ -56,6 +58,8 @@ public class Mail : MonoBehaviour
         tmpName.SetText(newName);
 
         tmpMessage.SetText(generatedMessage);
+
+        SetDays(days);
 
         if(letterNum == 0)
             leftButton.interactable = false;
@@ -106,5 +110,20 @@ public class Mail : MonoBehaviour
 
     public void NextLetter() {
         MailManager.instance.SetActiveLetter(letterNum + 1);
+    }
+
+    void SetDays(int days) {
+        daysLeft = days;
+        tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
+    }
+
+    public bool NewDay() {
+        daysLeft--;
+
+        if (daysLeft > 0) {
+            tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
+            return true;
+        }
+            else return false;
     }
 }

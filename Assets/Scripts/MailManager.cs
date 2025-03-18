@@ -16,6 +16,8 @@ public class MailManager : MonoBehaviour
     float currTime = 0f;
     float lastMailTime = 0f;
     [SerializeField] float newMailTime;
+    [SerializeField] int minDays;
+    [SerializeField] int maxDays;
 
     void Awake()
     {
@@ -27,25 +29,34 @@ public class MailManager : MonoBehaviour
     {
         crops = Manager.instance.crops;
         letters = new Mail[numLetters];
-    }
-
-    void Update()
-    {
-        // currTime += Time.deltaTime;
-
-        // if(currTime - newMailTime >= lastMailTime)
-        // {
-        //     lastMailTime += newMailTime;
-            
-        //     if(letters[letters.Length - 1] == null)
-        //         GenerateLetter();
-        // }
+        if (numLetters > 0) GenerateLetter();
     }
 
     public void NewDay() {
-        float mailChance = (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
+        float mailChance = 20f + (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
 
-        for (int i = 0; i < letters.Length; i++) {
+        int letterNum = 0;
+
+        while (letterNum < letters.Length) {
+            if (letters[letterNum] != null) {
+                if (!letters[letterNum].NewDay()) {
+                    RemoveLetter(letterNum);
+                    letterNum--;
+                }
+            }
+
+            letterNum++;
+        }
+
+        // for (int i = 0; i < letters.Length; i++) {
+        //     if (letters[i] != null) {
+        //         if (!letters[i].NewDay();)
+        //     }
+        // }
+
+        if (letters[0] == null) GenerateLetter();
+
+        for (int i = 1; i < letters.Length; i++) {
             if (letters[i] == null) {
                 float randNum = Random.Range(0f, 100f);
 
@@ -67,8 +78,9 @@ public class MailManager : MonoBehaviour
                 Vector2 mailPos = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
                 Mail mail = Instantiate(mailLetterPrefab, mailPos, Quaternion.identity) as Mail;
                 letters[i] = mail;
+                int numDays = Random.Range(minDays, maxDays + 1);
 
-                mail.SetLetter(i, name, message, crop, num);
+                mail.SetLetter(i, name, message, crop, num, numDays);
                 mail.gameObject.SetActive(false);
 
                 if (i > 0)
