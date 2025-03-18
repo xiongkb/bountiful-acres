@@ -817,7 +817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5649932133344783337
 RectTransform:
   m_ObjectHideFlags: 0
@@ -924,6 +924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmpName: {fileID: 321121427500906218}
   tmpMessage: {fileID: 4099100653797663800}
+  tmpExpiration: {fileID: 1297585444655819085}
   acceptButton: {fileID: 4920948272165599884}
   rejectButton: {fileID: 6783407673370186764}
   shipButton: {fileID: 7424408837251723870}

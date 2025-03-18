@@ -6928,6 +6928,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   newMailTime: 10
+  minDays: 1
+  maxDays: 3
 --- !u!114 &1999732038
 MonoBehaviour:
   m_ObjectHideFlags: 0
