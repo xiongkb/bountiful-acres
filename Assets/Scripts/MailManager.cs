@@ -27,6 +27,7 @@ public class MailManager : MonoBehaviour
     {
         crops = Manager.instance.crops;
         letters = new Mail[numLetters];
+        if (numLetters > 0) GenerateLetter();
     }
 
     void Update()
@@ -43,9 +44,11 @@ public class MailManager : MonoBehaviour
     }
 
     public void NewDay() {
-        float mailChance = (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
+        float mailChance = 20f + (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
 
-        for (int i = 0; i < letters.Length; i++) {
+        if (letters[0] == null) GenerateLetter();
+
+        for (int i = 1; i < letters.Length; i++) {
             if (letters[i] == null) {
                 float randNum = Random.Range(0f, 100f);
 
