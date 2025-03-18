@@ -307,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -389, y: 37}
+  m_AnchoredPosition: {x: -410, y: 55}
   m_SizeDelta: {x: 340, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &52487615
@@ -4009,7 +4009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Text Msgs
+  m_text: So you've come back to help out with the farm.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6967,6 +6967,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceMultiplier: 100
+  expBarFill: {fileID: 0}
+  maxExp: 0
   experienceDisplay: {fileID: 1489209107}
   experience: 0
 --- !u!1 &2010966702
