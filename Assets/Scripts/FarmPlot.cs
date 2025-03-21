@@ -8,6 +8,7 @@ public class FarmPlot : MonoBehaviour
     [SerializeField] private Sprite tilledSprite1;
     [SerializeField] private Sprite tilledSprite2;
     [SerializeField] private Sprite tilledSprite3;
+    [SerializeField] int sproutTime;
     // starting status of the plot
     private int tillLevel = 0;
     private int waterLevel = 0;
@@ -16,6 +17,7 @@ public class FarmPlot : MonoBehaviour
     private GameObject plantedSeed;
     private GameObject seedCrop;
     private GameObject plantedCrop;
+    bool sprouting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +60,7 @@ public class FarmPlot : MonoBehaviour
 
             isPlanted = true;
 
-            if (waterLevel > 0) Grow();
+            if (waterLevel > 0 && !sprouting && !isGrowing) StartCoroutine(Grow());
         }
     }
 
@@ -68,14 +70,18 @@ public class FarmPlot : MonoBehaviour
             float tint = 1 - waterLevel * .2f;
             spriteRenderer.color = new Color(tint, tint, tint);
 
-            if (isPlanted) Grow();
+            if (isPlanted && !sprouting && !isGrowing) StartCoroutine(Grow());
         }
     }
 
-    public void Grow() {
-        if (isGrowing) return;
+    IEnumerator Grow() {
+        sprouting = true;
+
+        yield return new WaitForSeconds(sproutTime);
 
         Destroy(plantedSeed, 0);
+
+        sprouting = false;
 
         plantedCrop = Instantiate(seedCrop, new Vector2(this.transform.position.x, this.transform.position.y + .7f), Quaternion.identity);
         isGrowing = true;

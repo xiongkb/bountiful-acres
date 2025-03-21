@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plot Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 3168049322213556239, guid: e200c4726dbafe647bb7006821b90a43, type: 3}
+      propertyPath: sproutTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3735997265605429491, guid: e200c4726dbafe647bb7006821b90a43, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2
