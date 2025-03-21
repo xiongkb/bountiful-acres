@@ -52,7 +52,7 @@ public class FarmPlot : MonoBehaviour
     }
 
     public void Plant(GameObject seed, GameObject crop) {
-        if (tillLevel > 0) {
+        if (tillLevel > 0 && plantedSeed == null && plantedCrop == null) {
             plantedSeed = Instantiate(seed, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
             seedCrop = crop;
 
