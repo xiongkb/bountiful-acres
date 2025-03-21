@@ -97,7 +97,8 @@ public class FarmPlot : MonoBehaviour
         if (growthStage == growthStages - 1) {
             plantGrowth.SelfDestruct(tillLevel, waterLevel);
 
-            // waterLevel = 0;
+            waterLevel = 0;
+            spriteRenderer.color = new Color(1, 1, 1);
             isPlanted = false;
             isGrowing = false;
             plantedSeed = null;
