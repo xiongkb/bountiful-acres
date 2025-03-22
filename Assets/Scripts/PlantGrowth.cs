@@ -85,16 +85,19 @@ public class PlantGrowth : MonoBehaviour
             }
         }
 
-        int numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f);
+        int numCrop = 0;
 
         switch (gameObject.tag) {
             case "Strawberry":
+                numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .8f) - (float)bugCount * .5f), 1f);
                 Inventory.instance.addStrawberry(numCrop);
                 break;
             case "Carrot":
+                numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f);
                 Inventory.instance.addCarrot(numCrop);
                 break;
             case "Potato":
+                numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .6f) - (float)bugCount * .5f), 1f);
                 Inventory.instance.addPotato(numCrop);
                 break;
             default:
