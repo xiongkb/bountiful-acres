@@ -77,9 +77,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Options")]
     public bool freezePlayerOnDialogue = true;
 
-    private void Start()
-    {
-
+    void Awake() {
         foreach (SpeakerLibrary.SpriteInfo info in speakerLibrary.speakerLibrary)
         {
             speakerSpriteNames.Add(info.name);

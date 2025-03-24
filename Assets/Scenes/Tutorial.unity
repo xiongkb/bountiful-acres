@@ -1707,7 +1707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextFileAsset: {fileID: 4900000, guid: 861957e087c752e49ba2d1cdb36282e7, type: 3}
   waitTime: 0.5
-  singleUseDialogue: 1
+  singleUseDialogue: 0
   hasBeenUsed: 0
 --- !u!61 &462423217
 BoxCollider2D:
@@ -2047,7 +2047,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 497349441}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776931027}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: AdvanceDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &497349441
 MonoBehaviour:
   m_ObjectHideFlags: 0
