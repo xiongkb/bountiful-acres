@@ -82,7 +82,7 @@ public class DialogueManager : MonoBehaviour
         {
             speakerSpriteNames.Add(info.name);
         }
-        speaker.sprite = invisSprite;
+        // speaker.sprite = invisSprite;
     }
 
     // private void FreezePlayer()
