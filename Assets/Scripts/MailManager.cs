@@ -93,6 +93,7 @@ public class MailManager : MonoBehaviour
 
     public void RemoveLetter(int letterNum)
     {
+        bool wasActive = letters[letterNum].gameObject.activeSelf;
         Destroy(letters[letterNum].gameObject);
         letters[letterNum] = null;
 
@@ -113,7 +114,7 @@ public class MailManager : MonoBehaviour
 
         if(letters[letterNum] != null)
         {
-            letters[letterNum].gameObject.SetActive(true);
+            if (wasActive) letters[letterNum].gameObject.SetActive(true);
 
             for(int i = letters.Length - 1; i >= 0; i--)
             {
@@ -130,7 +131,7 @@ public class MailManager : MonoBehaviour
         }
         else if(letterNum > 0)
         {
-            letters[letterNum - 1].gameObject.SetActive(true);
+            if (wasActive) letters[letterNum - 1].gameObject.SetActive(true);
 
             letters[letterNum - 1].rightButton.interactable = false;
         }
@@ -140,7 +141,6 @@ public class MailManager : MonoBehaviour
     {
         for(int i = 0; i < letters.Length; i++)
         {
-            // Debug.Log(i);
             if(letters[i] != null)
             {
                 
