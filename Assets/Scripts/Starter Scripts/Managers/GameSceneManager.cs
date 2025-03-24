@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameSceneManager : MonoBehaviour
 {
+    public static GameSceneManager instance;
     //Like the GameManager, this should be it's own gameobject
 
     [Tooltip("The black screen transition that will be used")]
@@ -14,6 +15,11 @@ public class GameSceneManager : MonoBehaviour
     [Tooltip("If you want to open this scene with a fade in")]
     public bool startWithFadeIn = true;
     // Start is called before the first frame update
+
+    void Awake() {
+        instance = this;
+    }
+
     void Start()
     {
         if (startWithFadeIn)
