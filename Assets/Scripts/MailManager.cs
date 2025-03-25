@@ -19,8 +19,44 @@ public class MailManager : MonoBehaviour
     [SerializeField] int minDays;
     [SerializeField] int maxDays;
 
+    List<Dictionary<string, string>> lvl1 = new List<Dictionary<string, string>> {
+        new Dictionary<string, string> {
+            {"name", "Johnathan"},
+            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
+            {"days", "3"},
+            {"strawberrie", "4"},
+            {"potatoe", "5"},
+            {"carrot", "0"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Janey"},
+            {"msg", "Hello! Can I buy some carrots? I need 3 to order to feed my farm animals."},
+            {"days", "2"},
+            {"strawberrie", "0"},
+            {"potatoe", "0"},
+            {"carrot", "3"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Obbie"},
+            {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
+            {"days", "2"},
+            {"strawberrie", "2"},
+            {"potatoe", "0"},
+            {"carrot", "0"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Susie"},
+            {"msg", "Do you sell potatoes? If so, I'll take 1. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"days", "1"},
+            {"strawberrie", "0"},
+            {"potatoe", "1"},
+            {"carrot", "0"}
+        }
+    };
+
     void Awake()
     {
+        // Debug.Log(lvl1[0]["msg"]);
         instance = this;
     }
 
@@ -31,6 +67,8 @@ public class MailManager : MonoBehaviour
         letters = new Mail[numLetters];
         if (numLetters > 0) GenerateLetter();
     }
+
+    // void Update() {Debug.Log(DaySystem.instance.dayCount);}
 
     public void NewDay() {
         float mailChance = 20f + (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
@@ -80,7 +118,15 @@ public class MailManager : MonoBehaviour
                 letters[i] = mail;
                 int numDays = Random.Range(minDays, maxDays + 1);
 
-                mail.SetLetter(i, name, message, crop, num, numDays);
+                Dictionary<string, int> taskCrops = new Dictionary<string, int> {
+                    {"strawberrie", 0},
+                    {"potatoe", 0},
+                    {"carrot", 0}
+                };
+
+                taskCrops[crop] = num;
+                
+                mail.SetLetter(i, name, message, taskCrops, crop, num, numDays);
                 mail.gameObject.SetActive(false);
 
                 if (i > 0)

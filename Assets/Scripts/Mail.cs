@@ -14,6 +14,7 @@ public class Mail : MonoBehaviour
     [SerializeField] Button shipButton;
     public Button leftButton;
     public Button rightButton;
+    Dictionary<string, int> crops;
     string crop;
     int num;
     int daysLeft;
@@ -21,34 +22,20 @@ public class Mail : MonoBehaviour
 
     void Update()
     {
-        int currentCropNum = 0;
+        if (
+            Inventory.instance.strawberryCount >= crops["strawberrie"] &&
+            Inventory.instance.carrotCount >= crops["carrot"] &&
+            Inventory.instance.potatoCount >= crops["potatoe"]
+        ) shipButton.interactable = true;
+        else shipButton.interactable = false;
 
-        switch (crop) {
-            case "strawberrie":
-                currentCropNum = Inventory.instance.strawberryCount;
-                break;
-            case "carrot":
-                currentCropNum = Inventory.instance.carrotCount;
-                break;
-            case "potatoe":
-                currentCropNum = Inventory.instance.potatoCount;
-                break;
-            default:
-                break;
-        }
-
-        if(currentCropNum >= num)
-            shipButton.interactable = true;
-        else
-            shipButton.interactable = false;
-
-        if(letterNum == 0)
-            leftButton.interactable = false;
+        if(letterNum == 0) leftButton.interactable = false;
     }
 
-    public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum, int days)
+    public void SetLetter(int newLetterNum, string newName, string newMessage, Dictionary<string, int> newCrops, string newCrop, int newNum, int days)
     {
         letterNum = newLetterNum;
+        crops = newCrops;
         crop = newCrop;
         string generatedMessage = newMessage;
         generatedMessage = generatedMessage.Replace("<crop>", newCrop);
@@ -86,21 +73,11 @@ public class Mail : MonoBehaviour
 
     public void Ship()
     {
-        switch (crop) {
-            case "strawberrie":
-                Inventory.instance.addStrawberry(-num);
-                break;
-            case "carrot":
-                Inventory.instance.addCarrot(-num);
-                break;
-            case "potatoe":
-                Inventory.instance.addPotato(-num);
-                break;
-            default:
-                break;
-        }
+        Inventory.instance.addStrawberry(-crops["strawberrie"]);
+        Inventory.instance.addCarrot(-crops["carrot"]);
+        Inventory.instance.addPotato(-crops["potatoe"]);
 
-        Experience.instance.AddExperience(num);
+        Experience.instance.AddExperience(crops["strawberrie"] + crops["carrot"] + crops["potatoe"]);
         MailManager.instance.RemoveLetter(letterNum);
     }
 
