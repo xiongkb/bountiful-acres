@@ -11,14 +11,12 @@ public class MailManager : MonoBehaviour
     float currTime = 0f;
     float lastMailTime = 0f;
     [SerializeField] float newMailTime;
-    [SerializeField] int minDays;
-    [SerializeField] int maxDays;
 
     List<Dictionary<string, string>> lvl1 = new List<Dictionary<string, string>> {
         new Dictionary<string, string> {
             {"name", "Johnathan"},
             {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
-            {"days", "3"},
+            {"days", "-1"},
             {"strawberrie", "4"},
             {"potatoe", "5"},
             {"carrot", "0"}
@@ -34,7 +32,7 @@ public class MailManager : MonoBehaviour
         new Dictionary<string, string> {
             {"name", "Obbie"},
             {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
-            {"days", "2"},
+            {"days", null},
             {"strawberrie", "2"},
             {"potatoe", "0"},
             {"carrot", "0"}
@@ -109,7 +107,7 @@ public class MailManager : MonoBehaviour
                 Vector2 mailPos = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
                 Mail mail = Instantiate(mailLetterPrefab, mailPos, Quaternion.identity) as Mail;
                 letters[i] = mail;
-                int numDays = Random.Range(minDays, maxDays + 1);
+                int numDays = int.Parse(task["days"]);
 
                 Dictionary<string, int> taskCrops = new Dictionary<string, int> {
                     {"strawberrie", int.Parse(task["strawberrie"])},

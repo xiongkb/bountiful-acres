@@ -84,10 +84,14 @@ public class Mail : MonoBehaviour
 
     void SetDays(int days) {
         daysLeft = days;
-        tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
+
+        if (days != -1) tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
+        else tmpExpiration.SetText("∞ Days Left");
     }
 
     public bool NewDay() {
+        if (daysLeft == -1) return true;
+
         daysLeft--;
 
         if (daysLeft > 0) {
