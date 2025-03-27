@@ -15,8 +15,6 @@ public class Mail : MonoBehaviour
     public Button leftButton;
     public Button rightButton;
     Dictionary<string, int> crops;
-    string crop;
-    int num;
     int daysLeft;
     public int letterNum;
 
@@ -32,19 +30,14 @@ public class Mail : MonoBehaviour
         if(letterNum == 0) leftButton.interactable = false;
     }
 
-    public void SetLetter(int newLetterNum, string newName, string newMessage, Dictionary<string, int> newCrops, string newCrop, int newNum, int days)
+    public void SetLetter(int newLetterNum, string newName, string newMessage, Dictionary<string, int> newCrops, int days)
     {
         letterNum = newLetterNum;
         crops = newCrops;
-        crop = newCrop;
-        string generatedMessage = newMessage;
-        generatedMessage = generatedMessage.Replace("<crop>", newCrop);
-        generatedMessage = generatedMessage.Replace("<num>", newNum.ToString());
-        num = newNum;
 
         tmpName.SetText(newName);
 
-        tmpMessage.SetText(generatedMessage);
+        tmpMessage.SetText(newMessage);
 
         SetDays(days);
 

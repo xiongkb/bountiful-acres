@@ -7,11 +7,6 @@ public class MailManager : MonoBehaviour
     public static MailManager instance;
     [SerializeField] Mail mailLetterPrefab;
     public int numLetters;
-    [SerializeField] int minNum;
-    [SerializeField] int maxNum;
-    [SerializeField] string[] names;
-    [SerializeField] string[] messages;
-    string[] crops;
     public Mail[] letters = { null, null, null, null, null };
     float currTime = 0f;
     float lastMailTime = 0f;
@@ -63,7 +58,6 @@ public class MailManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        crops = Manager.instance.crops;
         letters = new Mail[numLetters];
         if (numLetters > 0) GenerateLetter();
     }
@@ -108,25 +102,22 @@ public class MailManager : MonoBehaviour
         for (int i = 0; i < letters.Length; i++)
         {
             if (letters[i] == null)
-            {
-                string name = names[Random.Range(0, names.Length)];
-                string message = messages[Random.Range(0, messages.Length)];
-                string crop = crops[Random.Range(0, crops.Length)];
-                int num = Random.Range(minNum, maxNum);
+            {  
+                Dictionary<string, string> task = lvl1[0];
+                string name = task["name"];
+                string message = task["msg"];
                 Vector2 mailPos = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
                 Mail mail = Instantiate(mailLetterPrefab, mailPos, Quaternion.identity) as Mail;
                 letters[i] = mail;
                 int numDays = Random.Range(minDays, maxDays + 1);
 
                 Dictionary<string, int> taskCrops = new Dictionary<string, int> {
-                    {"strawberrie", 0},
-                    {"potatoe", 0},
-                    {"carrot", 0}
+                    {"strawberrie", int.Parse(task["strawberrie"])},
+                    {"potatoe", int.Parse(task["potatoe"])},
+                    {"carrot", int.Parse(task["carrot"])}
                 };
-
-                taskCrops[crop] = num;
                 
-                mail.SetLetter(i, name, message, taskCrops, crop, num, numDays);
+                mail.SetLetter(i, name, message, taskCrops, numDays);
                 mail.gameObject.SetActive(false);
 
                 if (i > 0)
