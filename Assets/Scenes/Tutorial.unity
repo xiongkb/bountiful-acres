@@ -307,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -389, y: 37}
+  m_AnchoredPosition: {x: -410, y: 55}
   m_SizeDelta: {x: 340, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &52487615
@@ -1692,7 +1692,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &462423216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,7 +1707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextFileAsset: {fileID: 4900000, guid: 861957e087c752e49ba2d1cdb36282e7, type: 3}
   waitTime: 0.5
-  singleUseDialogue: 1
+  singleUseDialogue: 0
   hasBeenUsed: 0
 --- !u!61 &462423217
 BoxCollider2D:
@@ -2047,7 +2047,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 497349441}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776931027}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: AdvanceDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &497349441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4009,7 +4021,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Text Msgs
+  m_text: So you've come back to help out with the farm.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5907,6 +5919,7 @@ GameObject:
   - component: {fileID: 1776931028}
   - component: {fileID: 1776931027}
   - component: {fileID: 1776931029}
+  - component: {fileID: 1776931030}
   m_Layer: 0
   m_Name: General_Manager
   m_TagString: Untagged
@@ -5967,6 +5980,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transition: {fileID: 2094358988}
   startWithFadeIn: 1
+--- !u!114 &1776931030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776931026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb22a3bd5b6fe1a4894a616921bc9a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextFileAsset: {fileID: 4900000, guid: 861957e087c752e49ba2d1cdb36282e7, type: 3}
+  waitTime: 0.5
+  singleUseDialogue: 0
+  hasBeenUsed: 0
 --- !u!1 &1781483899
 GameObject:
   m_ObjectHideFlags: 0
@@ -6967,6 +6996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceMultiplier: 100
+  expBarFill: {fileID: 0}
+  maxExp: 0
   experienceDisplay: {fileID: 1489209107}
   experience: 0
 --- !u!1 &2010966702

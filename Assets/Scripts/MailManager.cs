@@ -7,30 +7,60 @@ public class MailManager : MonoBehaviour
     public static MailManager instance;
     [SerializeField] Mail mailLetterPrefab;
     public int numLetters;
-    [SerializeField] int minNum;
-    [SerializeField] int maxNum;
-    [SerializeField] string[] names;
-    [SerializeField] string[] messages;
-    string[] crops;
     public Mail[] letters = { null, null, null, null, null };
     float currTime = 0f;
     float lastMailTime = 0f;
     [SerializeField] float newMailTime;
-    [SerializeField] int minDays;
-    [SerializeField] int maxDays;
+
+    List<Dictionary<string, string>> lvl1 = new List<Dictionary<string, string>> {
+        new Dictionary<string, string> {
+            {"name", "Johnathan"},
+            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
+            {"days", "-1"},
+            {"strawberrie", "4"},
+            {"potatoe", "5"},
+            {"carrot", "0"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Janey"},
+            {"msg", "Hello! Can I buy some carrots? I need 3 to order to feed my farm animals."},
+            {"days", "2"},
+            {"strawberrie", "0"},
+            {"potatoe", "0"},
+            {"carrot", "3"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Obbie"},
+            {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
+            {"days", null},
+            {"strawberrie", "2"},
+            {"potatoe", "0"},
+            {"carrot", "0"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Susie"},
+            {"msg", "Do you sell potatoes? If so, I'll take 1. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"days", "1"},
+            {"strawberrie", "0"},
+            {"potatoe", "1"},
+            {"carrot", "0"}
+        }
+    };
 
     void Awake()
     {
+        // Debug.Log(lvl1[0]["msg"]);
         instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        crops = Manager.instance.crops;
         letters = new Mail[numLetters];
         if (numLetters > 0) GenerateLetter();
     }
+
+    // void Update() {Debug.Log(DaySystem.instance.dayCount);}
 
     public void NewDay() {
         float mailChance = 20f + (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
@@ -70,17 +100,22 @@ public class MailManager : MonoBehaviour
         for (int i = 0; i < letters.Length; i++)
         {
             if (letters[i] == null)
-            {
-                string name = names[Random.Range(0, names.Length)];
-                string message = messages[Random.Range(0, messages.Length)];
-                string crop = crops[Random.Range(0, crops.Length)];
-                int num = Random.Range(minNum, maxNum);
+            {  
+                Dictionary<string, string> task = lvl1[0];
+                string name = task["name"];
+                string message = task["msg"];
                 Vector2 mailPos = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
                 Mail mail = Instantiate(mailLetterPrefab, mailPos, Quaternion.identity) as Mail;
                 letters[i] = mail;
-                int numDays = Random.Range(minDays, maxDays + 1);
+                int numDays = int.Parse(task["days"]);
 
-                mail.SetLetter(i, name, message, crop, num, numDays);
+                Dictionary<string, int> taskCrops = new Dictionary<string, int> {
+                    {"strawberrie", int.Parse(task["strawberrie"])},
+                    {"potatoe", int.Parse(task["potatoe"])},
+                    {"carrot", int.Parse(task["carrot"])}
+                };
+                
+                mail.SetLetter(i, name, message, taskCrops, numDays);
                 mail.gameObject.SetActive(false);
 
                 if (i > 0)
@@ -93,6 +128,7 @@ public class MailManager : MonoBehaviour
 
     public void RemoveLetter(int letterNum)
     {
+        bool wasActive = letters[letterNum].gameObject.activeSelf;
         Destroy(letters[letterNum].gameObject);
         letters[letterNum] = null;
 
@@ -113,7 +149,7 @@ public class MailManager : MonoBehaviour
 
         if(letters[letterNum] != null)
         {
-            letters[letterNum].gameObject.SetActive(true);
+            if (wasActive) letters[letterNum].gameObject.SetActive(true);
 
             for(int i = letters.Length - 1; i >= 0; i--)
             {
@@ -130,7 +166,7 @@ public class MailManager : MonoBehaviour
         }
         else if(letterNum > 0)
         {
-            letters[letterNum - 1].gameObject.SetActive(true);
+            if (wasActive) letters[letterNum - 1].gameObject.SetActive(true);
 
             letters[letterNum - 1].rightButton.interactable = false;
         }
@@ -140,7 +176,6 @@ public class MailManager : MonoBehaviour
     {
         for(int i = 0; i < letters.Length; i++)
         {
-            // Debug.Log(i);
             if(letters[i] != null)
             {
                 

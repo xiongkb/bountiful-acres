@@ -28,6 +28,9 @@ public class FarmTool : MonoBehaviour
             if (dragging == false) {
                 dragging = true;
                 transform.position = GetMousePos();
+            } else if (onToolShed) {
+                dragging = false;
+                this.transform.position = startPos;
             } else if (plot != null) {
                 FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
 
@@ -48,9 +51,6 @@ public class FarmTool : MonoBehaviour
                     default:
                         break;
                 }  
-            } else if (onToolShed) {
-                dragging = false;
-                this.transform.position = startPos;
             }
         }
     }

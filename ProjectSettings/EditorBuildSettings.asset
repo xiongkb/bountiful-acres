@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CreditScene.unity
     guid: fe509dcd1da74473ebe895bcd989ca9f
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: d35486850f06d4898bedba2b29f468a1
+  - enabled: 1
     path: Assets/Scenes/FarmLevel.unity
     guid: ae8588b006e3a904897f0fa5706b001f
   m_configObjects: {}

@@ -49,8 +49,8 @@ public class PlantGrowth : MonoBehaviour
                 float randNum = Random.Range(0f, 1f);
 
                 if (1 - randNum <= bug.bugChance) {
-                    float randX = Random.Range(-0.7f, 0.7f);
-                    float randY = Random.Range(-1.2f, 0.1f);
+                    float randX = Random.Range(-0.5f, 0.5f);
+                    float randY = Random.Range(-1.2f, 0f);
 
                     spawnedBugs.Add(Instantiate(bugs[i], new Vector3(this.transform.position.x + randX, this.transform.position.y + randY, newBugZ), Quaternion.identity));
                     newBugZ = newBugZ - 0.01f;
@@ -85,16 +85,19 @@ public class PlantGrowth : MonoBehaviour
             }
         }
 
-        int numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f);
+        int numCrop = 0;
 
         switch (gameObject.tag) {
             case "Strawberry":
+                numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .8f) - (float)bugCount * .5f), 1f);
                 Inventory.instance.addStrawberry(numCrop);
                 break;
             case "Carrot":
+                numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .3f) - (float)bugCount * .5f), 1f);
                 Inventory.instance.addCarrot(numCrop);
                 break;
             case "Potato":
+                numCrop = (int)Mathf.Max(Mathf.Round((((float)tillLevel * (float)waterLevel + 10) * .6f) - (float)bugCount * .5f), 1f);
                 Inventory.instance.addPotato(numCrop);
                 break;
             default:

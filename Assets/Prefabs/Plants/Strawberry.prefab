@@ -110,7 +110,7 @@ MonoBehaviour:
   bugs:
   - {fileID: 2458799739329869686, guid: 0449d923b0144774493e894b4cfd4bf2, type: 3}
   - {fileID: 3203487432547571498, guid: 609bd13b3cd630e4c86044d0c5b5669a, type: 3}
-  bugCheckTime: 5
+  bugCheckTime: 10
 --- !u!61 &740786490838103902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.75}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}

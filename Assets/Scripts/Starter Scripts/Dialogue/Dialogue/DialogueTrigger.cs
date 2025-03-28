@@ -22,21 +22,26 @@ public class DialogueTrigger : MonoBehaviour
 
     // public bool useCollision; // unused for now
 
+    void Awake() {
+        manager = FindObjectOfType<DialogueManager>();
+        manager.currentTrigger = this;
+    }
+
     private void Start()
     {
-        manager = FindObjectOfType<DialogueManager>();
+        TriggerDialogue();
     }
 
 
-    private void Update()
-    {
-        if (!hasBeenUsed && inArea && Input.GetKeyDown(KeyCode.E) && nextTime < Time.timeSinceLevelLoad)
-        {
-            //Debug.Log("Advance");
-            nextTime = Time.timeSinceLevelLoad + waitTime;
-            manager.AdvanceDialogue();
-        }
-    }
+    // private void Update()
+    // {
+    //     if (!hasBeenUsed && inArea && Input.GetKeyDown(KeyCode.E) && nextTime < Time.timeSinceLevelLoad)
+    //     {
+    //         //Debug.Log("Advance");
+    //         nextTime = Time.timeSinceLevelLoad + waitTime;
+    //         manager.AdvanceDialogue();
+    //     }
+    // }
 
     /* Called when you want to start dialogue */
     void TriggerDialogue()
@@ -85,27 +90,27 @@ public class DialogueTrigger : MonoBehaviour
 
     }
 
-    private void OnMouseEnter()
-    {
-        if (!hasBeenUsed)
-        {
-            manager.currentTrigger = this;
-            TriggerDialogue();
-            Debug.Log("Collision");
-        }
-    }
-    private void OnMouseOver()
-    {
+    // private void OnMouseEnter()
+    // {
+    //     if (!hasBeenUsed)
+    //     {
+    //         manager.currentTrigger = this;
+    //         TriggerDialogue();
+    //         Debug.Log("Collision");
+    //     }
+    // }
+    // private void OnMouseOver()
+    // {
         
-            inArea = true;
+    //         inArea = true;
         
-    }
-    private void OnMouseExit()
-    {
+    // }
+    // private void OnMouseExit()
+    // {
         
-        manager.EndDialogue();
+    //     manager.EndDialogue();
     
-        inArea = false;
+    //     inArea = false;
 
-    }
+    // }
 }

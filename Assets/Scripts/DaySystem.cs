@@ -21,8 +21,10 @@ public class DaySystem : MonoBehaviour
     public bool NewDay() {
         if (dayCount == maxDayCount) return false;
 
+        StartCoroutine(GameSceneManager.instance.FadeOut());
         dayCount++;
         dayCountText.SetText(dayCount.ToString());
+        StartCoroutine(GameSceneManager.instance.FadeIn());
         return true;
     }
 }

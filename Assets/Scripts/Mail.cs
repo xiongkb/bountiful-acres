@@ -14,50 +14,30 @@ public class Mail : MonoBehaviour
     [SerializeField] Button shipButton;
     public Button leftButton;
     public Button rightButton;
-    string crop;
-    int num;
+    Dictionary<string, int> crops;
     int daysLeft;
     public int letterNum;
 
     void Update()
     {
-        int currentCropNum = 0;
+        if (
+            Inventory.instance.strawberryCount >= crops["strawberrie"] &&
+            Inventory.instance.carrotCount >= crops["carrot"] &&
+            Inventory.instance.potatoCount >= crops["potatoe"]
+        ) shipButton.interactable = true;
+        else shipButton.interactable = false;
 
-        switch (crop) {
-            case "strawberrie":
-                currentCropNum = Inventory.instance.strawberryCount;
-                break;
-            case "carrot":
-                currentCropNum = Inventory.instance.carrotCount;
-                break;
-            case "potatoe":
-                currentCropNum = Inventory.instance.potatoCount;
-                break;
-            default:
-                break;
-        }
-
-        if(currentCropNum >= num)
-            shipButton.interactable = true;
-        else
-            shipButton.interactable = false;
-
-        if(letterNum == 0)
-            leftButton.interactable = false;
+        if(letterNum == 0) leftButton.interactable = false;
     }
 
-    public void SetLetter(int newLetterNum, string newName, string newMessage, string newCrop, int newNum, int days)
+    public void SetLetter(int newLetterNum, string newName, string newMessage, Dictionary<string, int> newCrops, int days)
     {
         letterNum = newLetterNum;
-        crop = newCrop;
-        string generatedMessage = newMessage;
-        generatedMessage = generatedMessage.Replace("<crop>", newCrop);
-        generatedMessage = generatedMessage.Replace("<num>", newNum.ToString());
-        num = newNum;
+        crops = newCrops;
 
         tmpName.SetText(newName);
 
-        tmpMessage.SetText(generatedMessage);
+        tmpMessage.SetText(newMessage);
 
         SetDays(days);
 
@@ -86,21 +66,11 @@ public class Mail : MonoBehaviour
 
     public void Ship()
     {
-        switch (crop) {
-            case "strawberrie":
-                Inventory.instance.addStrawberry(-num);
-                break;
-            case "carrot":
-                Inventory.instance.addCarrot(-num);
-                break;
-            case "potatoe":
-                Inventory.instance.addPotato(-num);
-                break;
-            default:
-                break;
-        }
+        Inventory.instance.addStrawberry(-crops["strawberrie"]);
+        Inventory.instance.addCarrot(-crops["carrot"]);
+        Inventory.instance.addPotato(-crops["potatoe"]);
 
-        Experience.instance.AddExperience(num);
+        Experience.instance.AddExperience(crops["strawberrie"] + crops["carrot"] + crops["potatoe"]);
         MailManager.instance.RemoveLetter(letterNum);
     }
 
@@ -114,10 +84,14 @@ public class Mail : MonoBehaviour
 
     void SetDays(int days) {
         daysLeft = days;
-        tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
+
+        if (days != -1) tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
+        else tmpExpiration.SetText("");
     }
 
     public bool NewDay() {
+        if (daysLeft == -1) return true;
+
         daysLeft--;
 
         if (daysLeft > 0) {

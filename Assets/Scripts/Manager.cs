@@ -7,7 +7,6 @@ public class Manager : MonoBehaviour
 {
     // player info
     public static Manager instance;
-    public string[] crops;
     public TMP_Text staminaText;
     public int maxStamina;
     int stamina;

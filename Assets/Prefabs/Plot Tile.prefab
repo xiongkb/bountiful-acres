@@ -102,6 +102,7 @@ MonoBehaviour:
   tilledSprite1: {fileID: 21300000, guid: f79f82ef2724947c0aaf6f96fa5bd6b5, type: 3}
   tilledSprite2: {fileID: 21300000, guid: 7acfae7b9eb7441debb33702c38cfc29, type: 3}
   tilledSprite3: {fileID: 21300000, guid: a8f73bf24ead24093b3c14c2800c3f43, type: 3}
+  sproutTime: 3
 --- !u!61 &7764736971736170054
 BoxCollider2D:
   m_ObjectHideFlags: 0
