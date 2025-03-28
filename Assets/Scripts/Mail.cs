@@ -9,6 +9,7 @@ public class Mail : MonoBehaviour
     [SerializeField] TMP_Text tmpName;
     [SerializeField] TMP_Text tmpMessage;
     [SerializeField] TMP_Text tmpExpiration;
+    [SerializeField] TMP_Text tmpExp;
     [SerializeField] Button acceptButton;
     [SerializeField] Button rejectButton;
     [SerializeField] Button shipButton;
@@ -38,6 +39,10 @@ public class Mail : MonoBehaviour
         tmpName.SetText(newName);
 
         tmpMessage.SetText(newMessage);
+
+        int totalCrops = crops["strawberrie"] + crops["carrot"] + crops["potatoe"];
+
+        tmpExp.SetText(Experience.instance.calcExp(totalCrops) + " exp");
 
         SetDays(days);
 

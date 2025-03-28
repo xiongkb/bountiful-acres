@@ -19,10 +19,14 @@ public class Experience : MonoBehaviour
     {
         instance = this;
     }
+
+    public int calcExp(int num) {
+        return num * experienceMultiplier;
+    }
     
     public void AddExperience(int exp)
     {
-        experience += exp * experienceMultiplier;
+        experience += calcExp(exp);
         experienceDisplay.SetText(experience.ToString());
         expBarFill.fillAmount = (float)experience / (float)maxExp;
 
