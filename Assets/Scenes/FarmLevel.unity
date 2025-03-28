@@ -5487,7 +5487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayCountText: {fileID: 426080307}
-  maxDayCount: 28
+  maxDayCount: 7
   dayCount: 1
 --- !u!1 &1976667112
 GameObject:
@@ -6009,10 +6009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d933534a722ec94284693f0e8bdf9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crops:
-  - strawberrie
-  - carrot
-  - potatoe
   staminaText: {fileID: 993605740}
   maxStamina: 100
 --- !u!4 &1999732035
@@ -6062,25 +6058,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mailLetterPrefab: {fileID: 852755875464967344, guid: 0867f32d212b43d41b95332168bf3732, type: 3}
   numLetters: 5
-  minNum: 3
-  maxNum: 50
-  names:
-  - Johnathan
-  - Janey
-  - Obbie
-  - Susie
-  - Grift
-  - Mii Ann
-  - Lance
-  - Nyx
-  messages:
-  - Hey there, I heard you're the new owner now. I run a small shop in town and would
-    like to buy <num> <crop>s. Hope you're able to send me some soon!
-  - Hello! Can I buy some <crop>s? I need <num> to order to feed my farm animals.
-  - I heard from your Pop that you taking over. Send me <num> of your finest <crop>s!
-    Let's see how yours taste like.
-  - Do you sell <crop>s? If so, I'll take <num>. I have a restaurant using the local
-    goods. Let's see how yours fare.
   letters:
   - {fileID: 0}
   - {fileID: 0}
@@ -6088,8 +6065,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   newMailTime: 10
-  minDays: 1
-  maxDays: 3
 --- !u!114 &1999732038
 MonoBehaviour:
   m_ObjectHideFlags: 0

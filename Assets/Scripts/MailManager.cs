@@ -11,16 +11,13 @@ public class MailManager : MonoBehaviour
     float currTime = 0f;
     float lastMailTime = 0f;
     [SerializeField] float newMailTime;
-    bool lvl1Added = false;
-    bool lvl2Added = false;
-    bool lvl3Added = false;
 
     List<Dictionary<string, string>> availableTasks = new List<Dictionary<string, string>>();
 
     List<Dictionary<string, string>> lvl1 = new List<Dictionary<string, string>> {
         new Dictionary<string, string> {
             {"name", "Johnathan"},
-            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
+            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 1 strawberries and 2 potatoes. Hope you're able to send me some soon!"},
             {"days", "-1"},
             {"strawberrie", "1"},
             {"potatoe", "2"},
@@ -36,7 +33,7 @@ public class MailManager : MonoBehaviour
         },
         new Dictionary<string, string> {
             {"name", "Obbie"},
-            {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
+            {"msg", "I heard from your Pop that you taking over. Send me 3 of your finest strawberries! Let's see how yours taste like."},
             {"days", "2"},
             {"strawberrie", "3"},
             {"potatoe", "0"},
@@ -44,25 +41,25 @@ public class MailManager : MonoBehaviour
         },
         new Dictionary<string, string> {
             {"name", "Susie"},
-            {"msg", "Do you sell potatoes? If so, I'll take 1. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"msg", "Do you sell potatoes? If so, I'll take 3. I have a restaurant using the local goods. Let's see how yours fare."},
             {"days", "3"},
-            {"strawberrie", "1"},
-            {"potatoe", "1"},
-            {"carrot", "1"}
+            {"strawberrie", "0"},
+            {"potatoe", "3"},
+            {"carrot", "0"}
         }
     };
 
     List<Dictionary<string, string>> lvl2 = new List<Dictionary<string, string>> {
         new Dictionary<string, string> {
-            {"name", "Johnathan"},
-            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
+            {"name", "Johnathan2"},
+            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 1 strawberries and 2 potatoes. Hope you're able to send me some soon!"},
             {"days", "-1"},
             {"strawberrie", "1"},
             {"potatoe", "2"},
             {"carrot", "0"}
         },
         new Dictionary<string, string> {
-            {"name", "Janey"},
+            {"name", "Janey2"},
             {"msg", "Hello! Can I buy some carrots? I need 3 to order to feed my farm animals."},
             {"days", "1"},
             {"strawberrie", "0"},
@@ -70,34 +67,34 @@ public class MailManager : MonoBehaviour
             {"carrot", "3"}
         },
         new Dictionary<string, string> {
-            {"name", "Obbie"},
-            {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
+            {"name", "Obbie2"},
+            {"msg", "I heard from your Pop that you taking over. Send me 3 of your finest strawberries! Let's see how yours taste like."},
             {"days", "2"},
             {"strawberrie", "3"},
             {"potatoe", "0"},
             {"carrot", "0"}
         },
         new Dictionary<string, string> {
-            {"name", "Susie"},
-            {"msg", "Do you sell potatoes? If so, I'll take 1. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"name", "Susie2"},
+            {"msg", "Do you sell potatoes? If so, I'll take 3. I have a restaurant using the local goods. Let's see how yours fare."},
             {"days", "3"},
-            {"strawberrie", "1"},
-            {"potatoe", "1"},
-            {"carrot", "1"}
+            {"strawberrie", "0"},
+            {"potatoe", "3"},
+            {"carrot", "0"}
         }
     };
 
     List<Dictionary<string, string>> lvl3 = new List<Dictionary<string, string>> {
         new Dictionary<string, string> {
-            {"name", "Johnathan"},
-            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
+            {"name", "Johnathan3"},
+            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 1 strawberries and 2 potatoes. Hope you're able to send me some soon!"},
             {"days", "-1"},
             {"strawberrie", "1"},
             {"potatoe", "2"},
             {"carrot", "0"}
         },
         new Dictionary<string, string> {
-            {"name", "Janey"},
+            {"name", "Janey3"},
             {"msg", "Hello! Can I buy some carrots? I need 3 to order to feed my farm animals."},
             {"days", "1"},
             {"strawberrie", "0"},
@@ -105,20 +102,20 @@ public class MailManager : MonoBehaviour
             {"carrot", "3"}
         },
         new Dictionary<string, string> {
-            {"name", "Obbie"},
-            {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
+            {"name", "Obbie3"},
+            {"msg", "I heard from your Pop that you taking over. Send me 3 of your finest strawberries! Let's see how yours taste like."},
             {"days", "2"},
             {"strawberrie", "3"},
             {"potatoe", "0"},
             {"carrot", "0"}
         },
         new Dictionary<string, string> {
-            {"name", "Susie"},
-            {"msg", "Do you sell potatoes? If so, I'll take 1. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"name", "Susie3"},
+            {"msg", "Do you sell potatoes? If so, I'll take 3. I have a restaurant using the local goods. Let's see how yours fare."},
             {"days", "3"},
-            {"strawberrie", "1"},
-            {"potatoe", "1"},
-            {"carrot", "1"}
+            {"strawberrie", "0"},
+            {"potatoe", "3"},
+            {"carrot", "0"}
         }
     };
 
@@ -131,9 +128,16 @@ public class MailManager : MonoBehaviour
     void Start()
     {
         availableTasks.AddRange(lvl1);
-        lvl1Added = true;
         letters = new Mail[numLetters];
         if (numLetters > 0) GenerateLetter();
+    }
+
+    public void Level2() {
+        availableTasks.AddRange(lvl2);
+    }
+
+    public void Level3() {
+        availableTasks.AddRange(lvl3);
     }
 
     // void Update() {Debug.Log(DaySystem.instance.dayCount);}

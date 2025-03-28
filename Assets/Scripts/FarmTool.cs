@@ -31,7 +31,7 @@ public class FarmTool : MonoBehaviour
             } else if (onToolShed) {
                 dragging = false;
                 this.transform.position = startPos;
-            } else if (plot != null) {
+            } else if (plot != null && plot.gameObject.tag == "Plot") {
                 FarmPlot farmPlot = (FarmPlot) plot.GetComponent(typeof(FarmPlot));
 
                 // tool functions
