@@ -11,20 +11,25 @@ public class MailManager : MonoBehaviour
     float currTime = 0f;
     float lastMailTime = 0f;
     [SerializeField] float newMailTime;
+    bool lvl1Added = false;
+    bool lvl2Added = false;
+    bool lvl3Added = false;
+
+    List<Dictionary<string, string>> availableTasks = new List<Dictionary<string, string>>();
 
     List<Dictionary<string, string>> lvl1 = new List<Dictionary<string, string>> {
         new Dictionary<string, string> {
             {"name", "Johnathan"},
             {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
             {"days", "-1"},
-            {"strawberrie", "4"},
-            {"potatoe", "5"},
+            {"strawberrie", "1"},
+            {"potatoe", "2"},
             {"carrot", "0"}
         },
         new Dictionary<string, string> {
             {"name", "Janey"},
             {"msg", "Hello! Can I buy some carrots? I need 3 to order to feed my farm animals."},
-            {"days", "2"},
+            {"days", "1"},
             {"strawberrie", "0"},
             {"potatoe", "0"},
             {"carrot", "3"}
@@ -32,30 +37,101 @@ public class MailManager : MonoBehaviour
         new Dictionary<string, string> {
             {"name", "Obbie"},
             {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
-            {"days", null},
-            {"strawberrie", "2"},
+            {"days", "2"},
+            {"strawberrie", "3"},
             {"potatoe", "0"},
             {"carrot", "0"}
         },
         new Dictionary<string, string> {
             {"name", "Susie"},
             {"msg", "Do you sell potatoes? If so, I'll take 1. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"days", "3"},
+            {"strawberrie", "1"},
+            {"potatoe", "1"},
+            {"carrot", "1"}
+        }
+    };
+
+    List<Dictionary<string, string>> lvl2 = new List<Dictionary<string, string>> {
+        new Dictionary<string, string> {
+            {"name", "Johnathan"},
+            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
+            {"days", "-1"},
+            {"strawberrie", "1"},
+            {"potatoe", "2"},
+            {"carrot", "0"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Janey"},
+            {"msg", "Hello! Can I buy some carrots? I need 3 to order to feed my farm animals."},
             {"days", "1"},
             {"strawberrie", "0"},
-            {"potatoe", "1"},
+            {"potatoe", "0"},
+            {"carrot", "3"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Obbie"},
+            {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
+            {"days", "2"},
+            {"strawberrie", "3"},
+            {"potatoe", "0"},
             {"carrot", "0"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Susie"},
+            {"msg", "Do you sell potatoes? If so, I'll take 1. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"days", "3"},
+            {"strawberrie", "1"},
+            {"potatoe", "1"},
+            {"carrot", "1"}
+        }
+    };
+
+    List<Dictionary<string, string>> lvl3 = new List<Dictionary<string, string>> {
+        new Dictionary<string, string> {
+            {"name", "Johnathan"},
+            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 4 strawberries and 5 potatoes. Hope you're able to send me some soon!"},
+            {"days", "-1"},
+            {"strawberrie", "1"},
+            {"potatoe", "2"},
+            {"carrot", "0"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Janey"},
+            {"msg", "Hello! Can I buy some carrots? I need 3 to order to feed my farm animals."},
+            {"days", "1"},
+            {"strawberrie", "0"},
+            {"potatoe", "0"},
+            {"carrot", "3"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Obbie"},
+            {"msg", "I heard from your Pop that you taking over. Send me 2 of your finest strawberries! Let's see how yours taste like."},
+            {"days", "2"},
+            {"strawberrie", "3"},
+            {"potatoe", "0"},
+            {"carrot", "0"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Susie"},
+            {"msg", "Do you sell potatoes? If so, I'll take 1. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"days", "3"},
+            {"strawberrie", "1"},
+            {"potatoe", "1"},
+            {"carrot", "1"}
         }
     };
 
     void Awake()
     {
-        // Debug.Log(lvl1[0]["msg"]);
         instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        availableTasks.AddRange(lvl1);
+        lvl1Added = true;
         letters = new Mail[numLetters];
         if (numLetters > 0) GenerateLetter();
     }
@@ -97,11 +173,14 @@ public class MailManager : MonoBehaviour
 
     void GenerateLetter()
     {
+        if (availableTasks.Count < 1) return;
+
         for (int i = 0; i < letters.Length; i++)
         {
             if (letters[i] == null)
-            {  
-                Dictionary<string, string> task = lvl1[0];
+            {
+                int taskIndex = Random.Range(0, availableTasks.Count);
+                Dictionary<string, string> task = availableTasks[taskIndex];
                 string name = task["name"];
                 string message = task["msg"];
                 Vector2 mailPos = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
@@ -120,6 +199,8 @@ public class MailManager : MonoBehaviour
 
                 if (i > 0)
                     letters[i - 1].rightButton.interactable = true;
+
+                availableTasks.RemoveAt(taskIndex);
 
                 break;
             }
