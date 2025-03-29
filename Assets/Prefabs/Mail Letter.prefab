@@ -1063,6 +1063,7 @@ MonoBehaviour:
   tmpMessage: {fileID: 4099100653797663800}
   tmpExpiration: {fileID: 1297585444655819085}
   tmpExp: {fileID: 8457626691971364305}
+  tmpMoney: {fileID: 7028037598617226408}
   acceptButton: {fileID: 4920948272165599884}
   rejectButton: {fileID: 6783407673370186764}
   shipButton: {fileID: 7424408837251723870}

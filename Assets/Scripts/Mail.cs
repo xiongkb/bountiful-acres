@@ -10,6 +10,7 @@ public class Mail : MonoBehaviour
     [SerializeField] TMP_Text tmpMessage;
     [SerializeField] TMP_Text tmpExpiration;
     [SerializeField] TMP_Text tmpExp;
+    [SerializeField] TMP_Text tmpMoney;
     [SerializeField] Button acceptButton;
     [SerializeField] Button rejectButton;
     [SerializeField] Button shipButton;
@@ -43,6 +44,7 @@ public class Mail : MonoBehaviour
         int totalCrops = crops["strawberrie"] + crops["carrot"] + crops["potatoe"];
 
         tmpExp.SetText(Experience.instance.calcExp(totalCrops) + " exp");
+        tmpMoney.SetText("$" + Money.instance.CalcMoney(crops["strawberrie"], crops["carrot"], crops["potatoe"]));
 
         SetDays(days);
 
@@ -76,6 +78,7 @@ public class Mail : MonoBehaviour
         Inventory.instance.addPotato(-crops["potatoe"]);
 
         Experience.instance.AddExperience(crops["strawberrie"] + crops["carrot"] + crops["potatoe"]);
+        Money.instance.AddMoney(crops["strawberrie"], crops["carrot"], crops["potatoe"]);
         MailManager.instance.RemoveLetter(letterNum);
     }
 

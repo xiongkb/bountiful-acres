@@ -6161,6 +6161,7 @@ GameObject:
   - component: {fileID: 1999732037}
   - component: {fileID: 1999732038}
   - component: {fileID: 1999732039}
+  - component: {fileID: 1999732041}
   m_Layer: 0
   m_Name: Farm_Manager
   m_TagString: Untagged
@@ -6277,6 +6278,20 @@ MonoBehaviour:
   maxExp: 1000
   experienceDisplay: {fileID: 1489209107}
   experience: 0
+--- !u!114 &1999732041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999732033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcc9fcdc9b89bc458793814e9234c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyDisplay: {fileID: 668480203}
+  money: 0
 --- !u!1 &2010966702
 GameObject:
   m_ObjectHideFlags: 0
