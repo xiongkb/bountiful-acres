@@ -1,4 +1,3 @@
-[SPEAKERSPRITE=Dad]Oh man there's no sprite right now or name!
-[NAME=Dad]Why hello there! Now i have a name!
-[NAME=Dad][SPEAKERSPRITE=Dad]This is a test script to make sure your dialogue is working!
-[NAME=Dad][SPEAKERSPRITE=Dad]You can even change text !
+[SPEAKERSPRITE=Dad][NAME=Dad]It's been awhile since I've last tended the land, so I'll teach you some basic things.
+I will let some of my old friends know you are taking over and they'll be more than happy to be your first customers.
+[NAME=Dad][SPEAKERSPRITE=Dad][to add more later]
