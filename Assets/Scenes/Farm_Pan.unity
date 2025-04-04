@@ -5222,7 +5222,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -22749,7 +22749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27de12d6cb095444fa88c7d0bf347c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experienceMultiplier: 100
+  experienceMultiplier: 10
   expBarFill: {fileID: 560445536}
   maxExp: 1000
   experienceDisplay: {fileID: 1489209107}
@@ -24422,10 +24422,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mail Letter
       objectReference: {fileID: 0}
-    - target: {fileID: 3788916183520207924, guid: 0867f32d212b43d41b95332168bf3732, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5649932133344783337, guid: 0867f32d212b43d41b95332168bf3732, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -24505,10 +24501,6 @@ PrefabInstance:
     - target: {fileID: 5649932133344783337, guid: 0867f32d212b43d41b95332168bf3732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6647384965006882799, guid: 0867f32d212b43d41b95332168bf3732, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 359
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
