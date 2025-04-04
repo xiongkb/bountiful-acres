@@ -1,3 +1,4 @@
-[SPEAKERSPRITE=Dad][NAME=Dad]It's been awhile since I've last tended the land, so I'll teach you some basic things.
-I will let some of my old friends know you are taking over and they'll be more than happy to be your first customers.
-[NAME=Dad][SPEAKERSPRITE=Dad][to add more later]
+[NAME=Dad]It's been awhile since I've run the farm, but everything is as where it should be. I did have to sell some land to retire, but once you get going, you can buy them back.
+[NAME=Dad]Farming isn't as hard you think. Just till the land with the hoe, plant the seeds we've left behind, and water them with the magic infused watering can. It'll help your crops grow fast!
+[NAME=Dad]Don't forget to get rid of pesky bugs! Those darn critters will affect your yields so make sure to pay attention to them. And if you get tired, then take a rest at home. You can always tend to the farm tomorrow.
+[NAME=Dad]That's all there really is to farming. Oh yeah, one more thing, how often you till and water also affect your yields. The more, the better... Good luck taking over the farm kiddo!

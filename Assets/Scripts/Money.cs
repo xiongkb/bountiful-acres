@@ -13,6 +13,7 @@ public class Money : MonoBehaviour
     void Awake()
     {
         instance = this;
+        moneyDisplay.SetText("$" + money.ToString());
     }
 
     public int CalcMoney(int strawberries, int carrots, int potatoes) {

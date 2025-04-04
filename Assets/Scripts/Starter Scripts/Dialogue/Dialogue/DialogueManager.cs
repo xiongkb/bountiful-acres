@@ -85,6 +85,14 @@ public class DialogueManager : MonoBehaviour
         // speaker.sprite = invisSprite;
     }
 
+    void Update() {
+        if(Input.GetKeyDown(KeyCode.Return) && inputStream.Count > 0) {
+            AdvanceDialogue();
+
+            if (inputStream.Count == 0) SceneManager.LoadScene(3);
+        }
+    }
+
     // private void FreezePlayer()
     // {
     //     playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
