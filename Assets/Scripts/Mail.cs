@@ -93,8 +93,8 @@ public class Mail : MonoBehaviour
     void SetDays(int days) {
         daysLeft = days;
 
-        if (days != -1) tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
-        else tmpExpiration.SetText("");
+        if (days != -1) tmpExpiration.SetText(daysLeft.ToString());
+        else tmpExpiration.SetText("∞");
     }
 
     public bool NewDay() {
@@ -103,7 +103,7 @@ public class Mail : MonoBehaviour
         daysLeft--;
 
         if (daysLeft > 0) {
-            tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
+            tmpExpiration.SetText(daysLeft.ToString());
             return true;
         }
             else return false;
