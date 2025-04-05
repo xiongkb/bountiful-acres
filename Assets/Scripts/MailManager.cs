@@ -201,6 +201,8 @@ public class MailManager : MonoBehaviour
                 break;
             }
         }
+
+        Mailbox.instance.SetFull();
     }
 
     public void RemoveLetter(int letterNum)
@@ -247,6 +249,8 @@ public class MailManager : MonoBehaviour
 
             letters[letterNum - 1].rightButton.interactable = false;
         }
+
+        if (letters[0] == null) Mailbox.instance.SetEmpty();
     }
 
     public void SetActiveLetter(int letterNum)

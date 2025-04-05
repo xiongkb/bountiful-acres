@@ -25,4 +25,9 @@ public class Money : MonoBehaviour
         money += CalcMoney(strawberries, carrots, potatoes);
         moneyDisplay.SetText("$" + money.ToString());
     }
+
+    public void SubtractMoney(int num) {
+        money -= num;
+        moneyDisplay.SetText("$" + money.ToString());
+    }
 }
