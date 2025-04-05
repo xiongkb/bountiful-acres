@@ -9,6 +9,8 @@ public class Mail : MonoBehaviour
     [SerializeField] TMP_Text tmpName;
     [SerializeField] TMP_Text tmpMessage;
     [SerializeField] TMP_Text tmpExpiration;
+    [SerializeField] TMP_Text tmpExp;
+    [SerializeField] TMP_Text tmpMoney;
     [SerializeField] Button acceptButton;
     [SerializeField] Button rejectButton;
     [SerializeField] Button shipButton;
@@ -38,6 +40,11 @@ public class Mail : MonoBehaviour
         tmpName.SetText(newName);
 
         tmpMessage.SetText(newMessage);
+
+        int totalCrops = crops["strawberrie"] + crops["carrot"] + crops["potatoe"];
+
+        tmpExp.SetText(Experience.instance.calcExp(totalCrops) + " exp");
+        tmpMoney.SetText("$" + Money.instance.CalcMoney(crops["strawberrie"], crops["carrot"], crops["potatoe"]));
 
         SetDays(days);
 
@@ -71,6 +78,7 @@ public class Mail : MonoBehaviour
         Inventory.instance.addPotato(-crops["potatoe"]);
 
         Experience.instance.AddExperience(crops["strawberrie"] + crops["carrot"] + crops["potatoe"]);
+        Money.instance.AddMoney(crops["strawberrie"], crops["carrot"], crops["potatoe"]);
         MailManager.instance.RemoveLetter(letterNum);
     }
 
@@ -85,8 +93,8 @@ public class Mail : MonoBehaviour
     void SetDays(int days) {
         daysLeft = days;
 
-        if (days != -1) tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
-        else tmpExpiration.SetText("");
+        if (days != -1) tmpExpiration.SetText(daysLeft.ToString());
+        else tmpExpiration.SetText("∞");
     }
 
     public bool NewDay() {
@@ -95,7 +103,7 @@ public class Mail : MonoBehaviour
         daysLeft--;
 
         if (daysLeft > 0) {
-            tmpExpiration.SetText(daysLeft.ToString() + " Days Left");
+            tmpExpiration.SetText(daysLeft.ToString());
             return true;
         }
             else return false;
