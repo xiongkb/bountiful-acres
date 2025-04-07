@@ -20374,6 +20374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832b2c1b83e1c40439941471f127a6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1817460433}
+  spriteEmpty: {fileID: 21300000, guid: fce8878598562134a942b5384a6ef241, type: 3}
+  spriteFull: {fileID: 21300000, guid: 25aa2345b54231b43b46bf883731506d, type: 3}
 --- !u!1001 &1822658753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22767,7 +22770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyDisplay: {fileID: 668480203}
-  money: 0
+  money: 760
 --- !u!1 &2001868509
 GameObject:
   m_ObjectHideFlags: 0

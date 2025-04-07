@@ -5381,7 +5381,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.02, y: 2.47, z: -10}
+  m_LocalPosition: {x: 2.63, y: 2.09, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20794,6 +20794,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832b2c1b83e1c40439941471f127a6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  spriteEmpty: {fileID: 0}
+  spriteFull: {fileID: 0}
 --- !u!1001 &1822658753
 PrefabInstance:
   m_ObjectHideFlags: 0
