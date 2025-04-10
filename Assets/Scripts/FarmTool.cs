@@ -48,6 +48,7 @@ public class FarmTool : MonoBehaviour
                     case "WateringCan":
                         if (Manager.instance.UseStamina(2)) {
                             animator.SetBool("isWatering", true);
+                            StartCoroutine(StopAnimation("isWatering"));
                             farmPlot.Water();
                         }
                         break;
@@ -59,6 +60,12 @@ public class FarmTool : MonoBehaviour
                 }  
             }
         }
+    }
+
+    IEnumerator StopAnimation(string animationBool) {
+        yield return new WaitForSeconds(0.2f);
+
+        animator.SetBool(animationBool, false);
     }
 
     void OnMouseDown() {
