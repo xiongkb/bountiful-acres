@@ -19,6 +19,7 @@ public class FarmPlot : MonoBehaviour
     private GameObject plantedCrop;
     bool sprouting = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +67,7 @@ public class FarmPlot : MonoBehaviour
 
     public void Water() {
         if (tillLevel > 0 && waterLevel < 3) {
+            
             waterLevel++;
             float tint = 1 - waterLevel * .2f;
             spriteRenderer.color = new Color(tint, tint, tint);
