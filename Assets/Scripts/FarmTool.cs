@@ -40,7 +40,11 @@ public class FarmTool : MonoBehaviour
                 // tool functions
                 switch(tool.tag) {
                     case "Hoe":
-                        if (Manager.instance.UseStamina(2)) farmPlot.Till();
+                        if (Manager.instance.UseStamina(2)) {
+                            animator.SetBool("isTilling", true);
+                            StartCoroutine(StopAnimation("isTilling"));
+                            farmPlot.Till();
+                        }
                         break;
                     case "SeedBag":
                         if (Manager.instance.UseStamina(1)) farmPlot.Plant(seed, crop);
@@ -53,7 +57,11 @@ public class FarmTool : MonoBehaviour
                         }
                         break;
                     case "Scythe":
-                        if (Manager.instance.UseStamina(3)) farmPlot.Harvest();
+                        if (Manager.instance.UseStamina(3)) {
+                            animator.SetBool("isHarvesting", true);
+                            StartCoroutine(StopAnimation("isHarvesting"));
+                            farmPlot.Harvest();
+                        }
                         break;
                     default:
                         break;
@@ -63,7 +71,7 @@ public class FarmTool : MonoBehaviour
     }
 
     IEnumerator StopAnimation(string animationBool) {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         animator.SetBool(animationBool, false);
     }

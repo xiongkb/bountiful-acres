@@ -5455,6 +5455,7 @@ MonoBehaviour:
   seed: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   crop: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
+  animator: {fileID: 540852092}
 --- !u!61 &540852091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5534,6 +5535,7 @@ GameObject:
   - component: {fileID: 549878247}
   - component: {fileID: 549878246}
   - component: {fileID: 549878245}
+  - component: {fileID: 549878248}
   m_Layer: 3
   m_Name: Scythe
   m_TagString: Scythe
@@ -5696,6 +5698,28 @@ MonoBehaviour:
   seed: {fileID: 0}
   crop: {fileID: 0}
   plot: {fileID: 0}
+  animator: {fileID: 549878248}
+--- !u!95 &549878248
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549878242}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 300c7bc4bb76043138198fda2fd586aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &555725908
 GameObject:
   m_ObjectHideFlags: 0
@@ -12083,6 +12107,7 @@ MonoBehaviour:
   seed: {fileID: 8715434031364933226, guid: 27a83dfe11c042d40b2630a8fec7c053, type: 3}
   crop: {fileID: 6192382973592746240, guid: 9375a32c4ed8b3a4fa8309d136152b06, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
+  animator: {fileID: 0}
 --- !u!50 &1161216883
 Rigidbody2D:
   serializedVersion: 4
@@ -12366,6 +12391,7 @@ GameObject:
   - component: {fileID: 1170220078}
   - component: {fileID: 1170220082}
   - component: {fileID: 1170220081}
+  - component: {fileID: 1170220083}
   m_Layer: 3
   m_Name: Hoe
   m_TagString: Hoe
@@ -12389,6 +12415,7 @@ MonoBehaviour:
   seed: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   crop: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
+  animator: {fileID: 1170220083}
 --- !u!212 &1170220079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12528,6 +12555,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1170220083
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170220077}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25ce1aefc1b4b42a8b578493bbe0428d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1175504534
 GameObject:
   m_ObjectHideFlags: 0
@@ -19204,6 +19252,7 @@ MonoBehaviour:
   seed: {fileID: 2208514259912590740, guid: 24674b4c17ebc4716bd157301b035d7c, type: 3}
   crop: {fileID: 501119480129419355, guid: b1947974f1d6d4784ba0460661b5a28f, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
+  animator: {fileID: 0}
 --- !u!212 &1742016943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22364,6 +22413,7 @@ MonoBehaviour:
   seed: {fileID: 8902859954556886295, guid: 074e3293ef2c44087a02a808be5ed8c2, type: 3}
   crop: {fileID: 665184583646919235, guid: 9e5d8b34b07a84cbeb2c6a304ad53194, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
+  animator: {fileID: 0}
 --- !u!212 &1989725417
 SpriteRenderer:
   m_ObjectHideFlags: 0
