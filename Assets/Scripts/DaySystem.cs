@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DaySystem : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class DaySystem : MonoBehaviour
     public TMP_Text dayCountText;
     public int maxDayCount;
     public int dayCount = 1;
+
 
     private void Awake() {
         instance = this;
@@ -19,7 +21,11 @@ public class DaySystem : MonoBehaviour
     }
 
     public bool NewDay() {
-        if (dayCount == maxDayCount) return false;
+        if (dayCount == maxDayCount) {
+            if (Experience.instance.experience >= Experience.instance.maxExp) SceneManager.LoadScene(4);
+            else SceneManager.LoadScene(5);
+            return false;
+        }
 
         StartCoroutine(GameSceneManager.instance.FadeOut());
         dayCount++;
