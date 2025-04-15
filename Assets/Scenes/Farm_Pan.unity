@@ -32502,7 +32502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyDisplay: {fileID: 668480203}
-  money: 760
+  money: 0
 --- !u!1 &2001868509
 GameObject:
   m_ObjectHideFlags: 0

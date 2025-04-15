@@ -42,7 +42,7 @@ public class FarmTool : MonoBehaviour
                     case "Hoe":
                         if (Manager.instance.UseStamina(2)) {
                             animator.SetBool("isTilling", true);
-                            StartCoroutine(StopAnimation("isTilling"));
+                            // StartCoroutine(StopAnimation("isTilling"));
                             farmPlot.Till();
                         }
                         break;
@@ -52,14 +52,14 @@ public class FarmTool : MonoBehaviour
                     case "WateringCan":
                         if (Manager.instance.UseStamina(2)) {
                             animator.SetBool("isWatering", true);
-                            StartCoroutine(StopAnimation("isWatering"));
+                            // StartCoroutine(StopAnimation("isWatering"));
                             farmPlot.Water();
                         }
                         break;
                     case "Scythe":
                         if (Manager.instance.UseStamina(3)) {
                             animator.SetBool("isHarvesting", true);
-                            StartCoroutine(StopAnimation("isHarvesting"));
+                            // StartCoroutine(StopAnimation("isHarvesting"));
                             farmPlot.Harvest();
                         }
                         break;
