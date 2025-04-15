@@ -8,7 +8,7 @@ public class Experience : MonoBehaviour
 {
     [SerializeField] int experienceMultiplier;
     [SerializeField] Image expBarFill;
-    [SerializeField] int maxExp;
+    public int maxExp;
     public static Experience instance;
     public TMP_Text experienceDisplay;
     public int experience = 0;
