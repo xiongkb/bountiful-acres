@@ -13,6 +13,9 @@ public class FarmTool : MonoBehaviour
     public GameObject plot;
     private bool onToolShed = false;
 
+    [SerializeField] private Animator animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,16 +40,25 @@ public class FarmTool : MonoBehaviour
                 // tool functions
                 switch(tool.tag) {
                     case "Hoe":
-                        if (Manager.instance.UseStamina(2)) farmPlot.Till();
+                        if (Manager.instance.UseStamina(2)) {
+                            animator.Play("tilling");
+                            farmPlot.Till();
+                        }
                         break;
                     case "SeedBag":
                         if (Manager.instance.UseStamina(1)) farmPlot.Plant(seed, crop);
                         break;
                     case "WateringCan":
-                        if (Manager.instance.UseStamina(2)) farmPlot.Water();
+                        if (Manager.instance.UseStamina(2)) {
+                            animator.Play("Watering");
+                            farmPlot.Water();
+                        }
                         break;
                     case "Scythe":
-                        if (Manager.instance.UseStamina(3)) farmPlot.Harvest();
+                        if (Manager.instance.UseStamina(3)) {
+                            animator.Play("harvesting");
+                            farmPlot.Harvest();
+                        }
                         break;
                     default:
                         break;

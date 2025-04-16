@@ -14,10 +14,11 @@ public class MailManager : MonoBehaviour
 
     List<Dictionary<string, string>> availableTasks = new List<Dictionary<string, string>>();
 
+    // level 1, first few days
     List<Dictionary<string, string>> lvl1 = new List<Dictionary<string, string>> {
         new Dictionary<string, string> {
             {"name", "Johnathan"},
-            {"msg", "Hey there, I heard you're the new owner now. I used to be best pal with your Pa and loved the produce he grew. They were always the best in town. I run a small shop in town and would love to buy a batch of 50 strawberries and 20 potatoes. I have high hopes that your crops will be just as good if not better than your Pa!"},
+            {"msg", "Hey there, I heard you're the new owner now. I used to be best pals with your Pa and loved the berries he grew. They were always the best in town. I run a small shop in town and would love to buy a batch of 50 strawberries and 20 potatoes. I have high hopes that your crops will be just as good, if not better than, your Pa’s!"},
             {"days", "-1"},
             {"strawberrie", "50"},
             {"potatoe", "20"},
@@ -25,7 +26,7 @@ public class MailManager : MonoBehaviour
         },
         new Dictionary<string, string> {
             {"name", "Janey"},
-            {"msg", "Hello neighbor! It's nice to see the farm starting up again. If you're able to send me 20 carrots, I'll pay you well! My horses could use some nice home grown treats!"},
+            {"msg", "Hello neighbor! It's nice to see the farm running again. I run an equestrian ranch if you ever have the need to ride a horse. If you're able to send me 20 carrots, I'll pay you well! Your dad told me all about you, so I have high expectations."},
             {"days", "-1"},
             {"strawberrie", "0"},
             {"potatoe", "0"},
@@ -33,7 +34,7 @@ public class MailManager : MonoBehaviour
         },
         new Dictionary<string, string> {
             {"name", "Obbie"},
-            {"msg", "I heard from your father that you taking over. Finally coming back to your roots eh? I'll be one of your first client and buy 10 of each crops. I'll cook them up in my restaurant so stop by some times."},
+            {"msg", "I heard from your father that you are taking over the land now. Finally coming back to your roots eh? I'll be one of your first clients and buy 10 of each crop. I'll cook them up in my restaurant, so stop by sometimes."},
             {"days", "-1"},
             {"strawberrie", "10"},
             {"potatoe", "10"},
@@ -41,72 +42,73 @@ public class MailManager : MonoBehaviour
         }
     };
 
+    // level 2, possibly middle days, when stars are over 33%
     List<Dictionary<string, string>> lvl2 = new List<Dictionary<string, string>> {
         new Dictionary<string, string> {
-            {"name", "Susie B"},
-            {"msg", "Nice to see a new face in town. I've heard you been selling really delicious strawberries. Can you send me 5? I'd like to sample them soon and see what the hype is all about."},
+            {"name", "Tasha Hex"},
+            {"msg", "Hello, I’ve been hearing you’re an up and coming new farm. I’m rather new here in Ha’waru so it would be nice to get to know you. I’m opening a small pastry shop in 3 days next to Obbie’s Restaurant and heard you sold really juicy strawberries. Would you be able to sell me 20? Maybe we can build a nice partnership :)"},
             {"days", "3"},
-            {"strawberrie", "5"},
+            {"strawberrie", "20"},
             {"potatoe", "0"},
             {"carrot", "0"}
         },
         new Dictionary<string, string> {
-            {"name", "Brock"},
-            {"msg", "I was told you sold carrots. Can you send me some immediately? I'm low on some stocks for my farm animals. Just 50 would be great! Thanks."},
+            {"name", "Rian"},
+            {"msg", "Dear neighbor, I have heard great things about you and am in need of 30 potatoes and 25 carrots immediately. I am trying a new experiment and time is of the essence. Is this too much to ask?"},
             {"days", "1"},
+            {"strawberrie", "0"},
+            {"potatoe", "20"},
+            {"carrot", "35"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Wils"},
+            {"msg", "Hey neighbor! My horses loved eating your carrots. I have a group of new equestrians coming to town and need more carrots soon. I’m thinking 50 this time around will do. Thanks a bunch, neighbor!"},
+            {"days", "4"},
             {"strawberrie", "0"},
             {"potatoe", "0"},
             {"carrot", "50"}
         },
         new Dictionary<string, string> {
-            {"name", "Wils"},
-            {"msg", "Dear farmer, after hearing how dilicious your crops were, I'd love to purchase a stock of 20 strawberries and carrots. I will send a thank you cake once my bakery is doing better."},
-            {"days", "-1"},
+            {"name", "Obbie"},
+            {"msg", "How are you doing Farmer? Is everything going as you expected? I hope you’re adjusting well now and are able to ship 20 each of your best crops. I’ll need them in 3 days as the mayor is throwing a party in town. When you get the time you should stop by."},
+            {"days", "3"},
             {"strawberrie", "20"},
-            {"potatoe", "0"},
+            {"potatoe", "20"},
             {"carrot", "20"}
-        },
-        new Dictionary<string, string> {
-            {"name", "Heathes"},
-            {"msg", "Do you sell potatoes? I need 15 of them... You should stop by my shop some time. I would love to get to know you better over some fries."},
-            {"days", "-1"},
-            {"strawberrie", "0"},
-            {"potatoe", "15"},
-            {"carrot", "0"}
         },
     };
 
     List<Dictionary<string, string>> lvl3 = new List<Dictionary<string, string>> {
         new Dictionary<string, string> {
-            {"name", "Johnathan3"},
-            {"msg", "Hey there, I heard you're the new owner now. I run a small shop in town and would like to buy 1 strawberries and 2 potatoes. Hope you're able to send me some soon!"},
-            {"days", "-1"},
-            {"strawberrie", "1"},
-            {"potatoe", "2"},
-            {"carrot", "0"}
+            {"name", "Johnathan"},
+            {"msg", "Wow, your crops have been a huge hit in my shop. My customers keep coming back asking why they have been tasting so much better than the ones before. Just between you and me, since your Pa retired I have been buying from Acomm Farms. They’re cheap since they can be found all over, but I don’t get many customers coming back for them. Yours are a hit and I’d love to order a batch of 50 strawberries and potatoes. Maybe you can add in a stash of 20 carrots."},
+            {"days", "5"},
+            {"strawberrie", "50"},
+            {"potatoe", "50"},
+            {"carrot", "20"}
         },
         new Dictionary<string, string> {
-            {"name", "Janey3"},
-            {"msg", "Hello! Can I buy some carrots? I need 3 to order to feed my farm animals."},
-            {"days", "1"},
-            {"strawberrie", "0"},
-            {"potatoe", "0"},
-            {"carrot", "3"}
-        },
-        new Dictionary<string, string> {
-            {"name", "Obbie3"},
-            {"msg", "I heard from your Pop that you taking over. Send me 3 of your finest strawberries! Let's see how yours taste like."},
-            {"days", "2"},
-            {"strawberrie", "3"},
+            {"name", "Wills"},
+            {"msg", "Hey there, your strawberries were really delicious at Obbie's. Would you be interested in selling some to me directly? I’ll make it worth your time and effort, I promise. I’ll order 20 strawberries."},
+            {"days", "3"},
+            {"strawberrie", "20"},
             {"potatoe", "0"},
             {"carrot", "0"}
         },
         new Dictionary<string, string> {
-            {"name", "Susie3"},
-            {"msg", "Do you sell potatoes? If so, I'll take 3. I have a restaurant using the local goods. Let's see how yours fare."},
+            {"name", "Pa"},
+            {"msg", "Hey kiddo, how is everything going? Your Ma needs 15 potatoes and carrots for a big soup she’s making. The town has been talking left and right about your crops. Your Ma and I are so proud of you and I hope you know that we love you. Keep it up kiddo."},
             {"days", "3"},
             {"strawberrie", "0"},
-            {"potatoe", "3"},
+            {"potatoe", "15"},
+            {"carrot", "15"}
+        },
+        new Dictionary<string, string> {
+            {"name", "Miichi"},
+            {"msg", "Hello fellow farmer, I have been hearing great things about what you grow, especially your strawberries. I run a seasonal competition showcasing our local farmers and their goods. This year, we are looking for the best and most delicious strawberries. If you’re interested in entering, please send in a batch of 10. You will be compensated of course. Thank you and hope to see you soon."},
+            {"days", "1"},
+            {"strawberrie", "10"},
+            {"potatoe", "0"},
             {"carrot", "0"}
         }
     };

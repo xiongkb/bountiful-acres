@@ -11,7 +11,7 @@ public class Land : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cost = int.Parse(tmpCost.text);
+        cost = int.Parse(tmpCost.text.Remove(0, 1));
     }
 
     // Update is called once per frame
