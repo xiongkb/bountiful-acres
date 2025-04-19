@@ -17,7 +17,7 @@ public class Land : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Utilities.instance.isOverlappingMouse(gameObject)) {
+        if (!MailManager.instance.mailActive && Input.GetMouseButtonDown(0) && Utilities.instance.isOverlappingMouse(gameObject)) {
             if (Money.instance.money >= cost) {
                 Money.instance.SubtractMoney(cost);
                 farmPlot.SetActive(true);

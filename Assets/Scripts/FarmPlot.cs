@@ -31,7 +31,7 @@ public class FarmPlot : MonoBehaviour
     {
         if (plantedCrop != null && Input.GetMouseButtonDown(0) && Utilities.instance.isOverlappingMouse(gameObject)) {
             PlantGrowth plantGrowth = ((PlantGrowth) plantedCrop.GetComponent(typeof(PlantGrowth)));
-            plantGrowth.CheckBug(Utilities.instance.GetMousePos());
+            if(!MailManager.instance.mailActive) plantGrowth.CheckBug(Utilities.instance.GetMousePos());
         }
     }
 
