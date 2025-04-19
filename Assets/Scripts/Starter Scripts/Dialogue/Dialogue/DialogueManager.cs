@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour
     public bool isScrollingText = true;
     [Tooltip("Seconds per letter")]
     public float typeSpeed = 0.01f;
+    [SerializeField] int nextSceneIndex;
 
 
     // private bool isOpen; // represents if the dialogue box is open or closed
@@ -89,7 +90,7 @@ public class DialogueManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return) && inputStream.Count > 0) {
             AdvanceDialogue();
 
-            if (inputStream.Count == 0) SceneManager.LoadScene(3);
+            if (inputStream.Count == 0) SceneManager.LoadScene(nextSceneIndex);
         }
     }
 
