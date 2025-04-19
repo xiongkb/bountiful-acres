@@ -1,0 +1,8 @@
+[SPEAKERSPRITE=Scene1]Sigh... This doesn't taste as good as it used to.
+[SPEAKERSPRITE=Scene1]I miss eating Ma and Pa's food... What's the difference between their food and this? I don't know...
+[SPEAKERSPRITE=Scene2]Is it because of how it's made? Pa used to work the land with his bare hands while Ma cooked whatever he grew.
+[SPEAKERSPRITE=Scene2]Magic has become so much better these days, you don't need land to grow these foods anymore.
+[SPEAKERSPRITE=Scene3]This must be why food don't taste as good as it used to... Ugh.
+[SPEAKERSPRITE=Scene3]Pa already retired from farming and no one really sells farmed crops like they used to.
+[SPEAKERSPRITE=Scene4]You know what, maybe I can head back home and see if Pa will teach me.
+[SPEAKERSPRITE=Scene4]If I can bring back eating farmed goods popular again, I don't have to deal with these plain and tasteless foods!

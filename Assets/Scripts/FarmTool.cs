@@ -51,7 +51,10 @@ public class FarmTool : MonoBehaviour
                         }
                         break;
                     case "SeedBag":
-                        if (Manager.instance.UseStamina(1)) farmPlot.Plant(seed, crop);
+                        if (Manager.instance.UseStamina(1)) {
+                            // animator.Play();
+                            farmPlot.Plant(seed, crop);
+                        }
                         break;
                     case "WateringCan":
                         if (Manager.instance.UseStamina(2)) {
