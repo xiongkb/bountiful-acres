@@ -57,6 +57,7 @@ public class Mail : MonoBehaviour
     public void Close()
     {
         gameObject.SetActive(false);
+        MailManager.instance.mailActive = false;
     }
 
     public void Accept()

@@ -12,6 +12,7 @@ public class MailManager : MonoBehaviour
    float currTime = 0f;
    float lastMailTime = 0f;
    [SerializeField] float newMailTime;
+   public bool mailActive = false;
 
 
    List<Dictionary<string, string>> availableTasks = new List<Dictionary<string, string>>();
@@ -117,7 +118,6 @@ public class MailManager : MonoBehaviour
            {"carrot", "0"}
        }
    };
-
 
    void Awake()
    {
@@ -283,7 +283,7 @@ public class MailManager : MonoBehaviour
 
 
            letters[letterNum - 1].rightButton.interactable = false;
-       }
+       } else mailActive = false;
 
 
        if (letters[0] == null) Mailbox.instance.SetEmpty();
@@ -300,6 +300,7 @@ public class MailManager : MonoBehaviour
                if(i == letterNum)
                {
                    letters[i].gameObject.SetActive(true);
+                   mailActive = true;
                }
                else
                {
