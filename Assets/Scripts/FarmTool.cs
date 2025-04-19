@@ -25,6 +25,11 @@ public class FarmTool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (MailManager.instance.mailActive) {
+            dragging = false;
+            this.transform.position = startPos;
+        }
+
         if (dragging) transform.position = GetMousePos();
 
         if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<Collider2D>().OverlapPoint(GetMousePos())) {

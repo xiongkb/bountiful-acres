@@ -13,7 +13,7 @@ public class EndDay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Utilities.instance.isOverlappingMouse(gameObject) && DaySystem.instance.NewDay()) {
+        if (!MailManager.instance.mailActive && Input.GetMouseButtonDown(0) && Utilities.instance.isOverlappingMouse(gameObject) && DaySystem.instance.NewDay()) {
             FarmPlot[] farmPlots = FindObjectsOfType(typeof(FarmPlot)) as FarmPlot[];
             for (int i = 0; i < farmPlots.Length; i++) farmPlots[i].NewDay();
 

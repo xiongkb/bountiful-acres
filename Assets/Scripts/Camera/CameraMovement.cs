@@ -30,9 +30,9 @@ public class CameraMovement : MonoBehaviour
 
     private void PanCam()
     {
-        if (Input.GetMouseButtonDown(1)) dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
+        if (!MailManager.instance.mailActive && Input.GetMouseButtonDown(1)) dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButton(1)) {
+        if (!MailManager.instance.mailActive && Input.GetMouseButton(1)) {
             Vector3 diff = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log(diff);
 
