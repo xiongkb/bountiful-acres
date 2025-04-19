@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WorldMap.unity
     guid: f99dd93f2fc3c81418c5084771b0c177
+  - enabled: 1
+    path: Assets/Scenes/Controls Tutorial.unity
+    guid: 33826355218899d4b903483cb9fa8be1
   m_configObjects: {}

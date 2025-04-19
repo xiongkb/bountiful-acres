@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerLibrary:
   - name: Dad
-    sprite: {fileID: 21300000, guid: bdae0648b719443188399ad6b06fe722, type: 3}
+    sprite: {fileID: 21300000, guid: f6d586390ae254848893255ab957f711, type: 3}
