@@ -5584,6 +5584,10 @@ MonoBehaviour:
   crop: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 540852092}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!61 &540852091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5827,6 +5831,10 @@ MonoBehaviour:
   crop: {fileID: 0}
   plot: {fileID: 0}
   animator: {fileID: 549878248}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!95 &549878248
 Animator:
   serializedVersion: 5
@@ -12152,6 +12160,10 @@ MonoBehaviour:
   crop: {fileID: 6192382973592746240, guid: 9375a32c4ed8b3a4fa8309d136152b06, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!50 &1161216883
 Rigidbody2D:
   serializedVersion: 4
@@ -12436,6 +12448,7 @@ GameObject:
   - component: {fileID: 1170220082}
   - component: {fileID: 1170220081}
   - component: {fileID: 1170220083}
+  - component: {fileID: 1170220084}
   m_Layer: 3
   m_Name: Hoe
   m_TagString: Hoe
@@ -12460,6 +12473,10 @@ MonoBehaviour:
   crop: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 1170220083}
+  tillingSFX: {fileID: 8300000, guid: 26c61e4e8016d4a849b5f8f8a1fc6ef4, type: 3}
+  wateringSFX: {fileID: 8300000, guid: 2babb90989ab64570a48cf6d26a7bea4, type: 3}
+  harvestingSFX: {fileID: 8300000, guid: 345f1a14a0ebd4d6da515b6ec9556e1a, type: 3}
+  plantingSFX: {fileID: 8300000, guid: f1b2cc3a0cdd0435aa4b1ec5860ba16a, type: 3}
 --- !u!212 &1170220079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12620,6 +12637,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &1170220084
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170220077}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1175504534
 GameObject:
   m_ObjectHideFlags: 0
@@ -24185,6 +24298,10 @@ MonoBehaviour:
   crop: {fileID: 501119480129419355, guid: b1947974f1d6d4784ba0460661b5a28f, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!212 &1742016943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32248,6 +32365,10 @@ MonoBehaviour:
   crop: {fileID: 665184583646919235, guid: 9e5d8b34b07a84cbeb2c6a304ad53194, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!212 &1989725417
 SpriteRenderer:
   m_ObjectHideFlags: 0

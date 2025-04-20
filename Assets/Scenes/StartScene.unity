@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 291167530}
   - component: {fileID: 291167529}
   - component: {fileID: 291167528}
+  - component: {fileID: 291167532}
   m_Layer: 5
   m_Name: Credit
   m_TagString: Untagged
@@ -689,6 +690,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291167526}
   m_CullTransparentMesh: 1
+--- !u!114 &291167532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291167526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4abcf12915b74148993158053a579e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 0
+  amplitude: 3
+  frequency: 1
 --- !u!1 &299263304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,8 +2613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degreesPerSecond: 0
-  amplitude: 0.2
-  frequency: 0.2
+  amplitude: 5
+  frequency: 1
 --- !u!1 &978074227
 GameObject:
   m_ObjectHideFlags: 0
@@ -4259,6 +4275,7 @@ GameObject:
   - component: {fileID: 1418220356}
   - component: {fileID: 1418220355}
   - component: {fileID: 1418220354}
+  - component: {fileID: 1418220358}
   m_Layer: 5
   m_Name: End Game
   m_TagString: Untagged
@@ -4392,6 +4409,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418220352}
   m_CullTransparentMesh: 1
+--- !u!114 &1418220358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418220352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4abcf12915b74148993158053a579e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 0
+  amplitude: 3
+  frequency: 1
 --- !u!1 &1464189974
 GameObject:
   m_ObjectHideFlags: 0
@@ -5561,6 +5593,7 @@ GameObject:
   - component: {fileID: 1923865700}
   - component: {fileID: 1923865699}
   - component: {fileID: 1923865698}
+  - component: {fileID: 1923865702}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -5651,7 +5684,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5694,6 +5727,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923865696}
   m_CullTransparentMesh: 1
+--- !u!114 &1923865702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923865696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4abcf12915b74148993158053a579e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 0
+  amplitude: 3
+  frequency: 1
 --- !u!1 &1924393021
 GameObject:
   m_ObjectHideFlags: 0

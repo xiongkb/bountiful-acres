@@ -15,6 +15,13 @@ public class FarmTool : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    //Audio
+    public AudioClip tillingSFX;
+    public AudioClip wateringSFX;
+    public AudioClip harvestingSFX;
+    public AudioClip plantingSFX;
+    AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,24 +53,33 @@ public class FarmTool : MonoBehaviour
                 switch(tool.tag) {
                     case "Hoe":
                         if (Manager.instance.UseStamina(2)) {
+                            audioSource = GetComponent<AudioSource>();
+                            audioSource.PlayOneShot(tillingSFX);
+
                             animator.Play("tilling");
                             farmPlot.Till();
                         }
                         break;
                     case "SeedBag":
                         if (Manager.instance.UseStamina(1)) {
+                            audioSource = GetComponent<AudioSource>();
+                            audioSource.PlayOneShot(plantingSFX);
                             // animator.Play();
                             farmPlot.Plant(seed, crop);
                         }
                         break;
                     case "WateringCan":
                         if (Manager.instance.UseStamina(2)) {
+                            audioSource = GetComponent<AudioSource>();
+                            audioSource.PlayOneShot(wateringSFX);
                             animator.Play("Watering");
                             farmPlot.Water();
                         }
                         break;
                     case "Scythe":
                         if (Manager.instance.UseStamina(3)) {
+                            audioSource = GetComponent<AudioSource>();
+                            audioSource.PlayOneShot(harvestingSFX);
                             animator.Play("harvesting");
                             farmPlot.Harvest();
                         }
