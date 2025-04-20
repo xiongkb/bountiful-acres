@@ -12264,6 +12264,7 @@ GameObject:
   - component: {fileID: 1161216883}
   - component: {fileID: 1161216884}
   - component: {fileID: 1161216885}
+  - component: {fileID: 1161216886}
   m_Layer: 3
   m_Name: StrawberryBag
   m_TagString: SeedBag
@@ -12354,7 +12355,7 @@ MonoBehaviour:
   seed: {fileID: 8715434031364933226, guid: 27a83dfe11c042d40b2630a8fec7c053, type: 3}
   crop: {fileID: 6192382973592746240, guid: 9375a32c4ed8b3a4fa8309d136152b06, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1161216886}
   tillingSFX: {fileID: 0}
   wateringSFX: {fileID: 0}
   harvestingSFX: {fileID: 0}
@@ -12527,6 +12528,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1161216886
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161216878}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 294bbc0d741289d4496e8d9a24fc6251, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1164127671
 GameObject:
   m_ObjectHideFlags: 0
@@ -24479,6 +24501,7 @@ GameObject:
   - component: {fileID: 1742016941}
   - component: {fileID: 1742016940}
   - component: {fileID: 1742016944}
+  - component: {fileID: 1742016945}
   m_Layer: 3
   m_Name: PotatoeBag
   m_TagString: SeedBag
@@ -24589,7 +24612,7 @@ MonoBehaviour:
   seed: {fileID: 2208514259912590740, guid: 24674b4c17ebc4716bd157301b035d7c, type: 3}
   crop: {fileID: 501119480129419355, guid: b1947974f1d6d4784ba0460661b5a28f, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1742016945}
   tillingSFX: {fileID: 0}
   wateringSFX: {fileID: 0}
   harvestingSFX: {fileID: 0}
@@ -24742,6 +24765,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1742016945
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742016938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16454f448e1a2e64fa524c0d201e835c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1756188447
 GameObject:
   m_ObjectHideFlags: 0
@@ -32741,6 +32785,7 @@ GameObject:
   - component: {fileID: 1989725415}
   - component: {fileID: 1989725414}
   - component: {fileID: 1989725418}
+  - component: {fileID: 1989725419}
   m_Layer: 3
   m_Name: CarrotBag
   m_TagString: SeedBag
@@ -32851,7 +32896,7 @@ MonoBehaviour:
   seed: {fileID: 8902859954556886295, guid: 074e3293ef2c44087a02a808be5ed8c2, type: 3}
   crop: {fileID: 665184583646919235, guid: 9e5d8b34b07a84cbeb2c6a304ad53194, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1989725419}
   tillingSFX: {fileID: 0}
   wateringSFX: {fileID: 0}
   harvestingSFX: {fileID: 0}
@@ -33004,6 +33049,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1989725419
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989725412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77a1fcf108e902c4eb7921130e106b3e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1995317792
 PrefabInstance:
   m_ObjectHideFlags: 0

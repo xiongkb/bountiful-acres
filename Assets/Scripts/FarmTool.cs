@@ -64,7 +64,7 @@ public class FarmTool : MonoBehaviour
                         if (Manager.instance.UseStamina(1)) {
                             audioSource = GetComponent<AudioSource>();
                             audioSource.PlayOneShot(plantingSFX);
-                            // animator.Play();
+                            animator.Play("Plant");
                             farmPlot.Plant(seed, crop);
                         }
                         break;
