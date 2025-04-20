@@ -1,4 +1,4 @@
 [NAME=Dad]It's been awhile since I've run the farm, but everything is as it should be. I did have to sell some land to retire, but once you get going, you can buy it back.
-[NAME=Dad]Farming isn't as hard you think. Just till the land with the hoe, plant the seeds we've left behind, and water them with the magic infused watering can. It'll help your crops grow fast!
+[NAME=Dad]Farming isn't as hard as you think. Just till the land with the hoe, plant the seeds we've left behind, and water them with the magic infused watering can. It'll help your crops grow fast.
 [NAME=Dad]Don't forget to get rid of pesky bugs! You'll need your hands free for that. Those darn critters will affect your yield, so make sure to pay attention to them. And if you get tired, then take a rest at home. You can always tend to the farm the next day.
 [NAME=Dad]That's all there really is to farming. Oh yeah, one more thing, how often you till and water will also affect your yield. The more, the better... Good luck taking over the farm kiddo!

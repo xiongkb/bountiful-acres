@@ -148,7 +148,7 @@ public class MailManager : MonoBehaviour
 
 
    public void NewDay() {
-       float mailChance = 30f + (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
+       float mailChance = 30f + ((float)DaySystem.instance.dayCount * ((float)Experience.instance.experience) / 444f);
 
 
        int letterNum = 0;
