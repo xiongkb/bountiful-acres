@@ -34,7 +34,7 @@ public class CameraMovement : MonoBehaviour
 
         if (!MailManager.instance.mailActive && Input.GetMouseButton(1)) {
             Vector3 diff = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(diff);
+            // Debug.Log(diff);
 
             cam.transform.position = ClampCam(cam.transform.position + diff);
 
