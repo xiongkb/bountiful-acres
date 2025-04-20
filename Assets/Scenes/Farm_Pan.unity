@@ -4402,7 +4402,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 196db0bd0a816436ab9b63065b708a5c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: edf68bef011fc3c4eb33738586bb5080, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.6
   m_Pitch: 1
@@ -33363,7 +33363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27de12d6cb095444fa88c7d0bf347c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experienceMultiplier: 10
+  experienceMultiplier: 5
   expBarFill: {fileID: 560445536}
   maxExp: 1000
   experienceDisplay: {fileID: 1489209107}
