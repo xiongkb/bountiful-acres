@@ -22,9 +22,9 @@ public class MailManager : MonoBehaviour
    List<Dictionary<string, string>> lvl1 = new List<Dictionary<string, string>> {
        new Dictionary<string, string> {
            {"name", "Johnathan"},
-           {"msg", "Hey there, I heard you're the new owner now. I used to be best pals with your Pa and loved the berries he grew. They were always the best in town. I run a small shop in town and would love to buy a batch of 50 strawberries and 20 potatoes. I have high hopes that your crops will be just as good, if not better than, your Pa’s!"},
+           {"msg", "Hey there, I heard you're the new owner now. I used to be best pals with your Pa and loved the berries he grew. They were always the best in town. I run a small shop in town and would love to buy a batch of 10 strawberries and 20 potatoes. I have high hopes that your crops will be just as good, if not better than your Pa’s!"},
            {"days", "-1"},
-           {"strawberrie", "50"},
+           {"strawberrie", "10"},
            {"potatoe", "20"},
            {"carrot", "0"}
        },
@@ -59,27 +59,27 @@ public class MailManager : MonoBehaviour
        },
        new Dictionary<string, string> {
            {"name", "Rian"},
-           {"msg", "Dear neighbor, I have heard great things about you and am in need of 30 potatoes and 25 carrots immediately. I am trying a new experiment and time is of the essence. Is this too much to ask?"},
+           {"msg", "Dear neighbor, I have heard great things about you and am in need of 10 potatoes and 15 carrots immediately. I am trying a new experiment and time is of the essence. Is this too much to ask?"},
            {"days", "1"},
            {"strawberrie", "0"},
-           {"potatoe", "20"},
-           {"carrot", "35"}
+           {"potatoe", "10"},
+           {"carrot", "15"}
        },
        new Dictionary<string, string> {
            {"name", "Janey"},
-           {"msg", "Hey neighbor! My horses loved eating your carrots. I have a group of new equestrians coming to town and need more carrots soon. I’m thinking 50 this time around will do. Thanks a bunch, neighbor!"},
+           {"msg", "Hey neighbor! My horses loved eating your carrots. I have a group of new equestrians coming to town and need more carrots soon. I’m thinking 30 this time around will do. Thanks a bunch, neighbor!"},
            {"days", "4"},
            {"strawberrie", "0"},
            {"potatoe", "0"},
-           {"carrot", "50"}
+           {"carrot", "30"}
        },
        new Dictionary<string, string> {
            {"name", "Obbie"},
-           {"msg", "How are you doing Farmer? Is everything going as you expected? I hope you’re adjusting well now and are able to ship 20 each of your best crops. I’ll need them in 3 days as the mayor is throwing a party in town. When you get the time you should stop by."},
+           {"msg", "How are you doing Farmer? Is everything going as you expected? I hope you’re adjusting well now and are able to ship 15 each of your best crops. I’ll need them in 3 days as the mayor is throwing a party in town. When you get the time you should stop by."},
            {"days", "3"},
-           {"strawberrie", "20"},
-           {"potatoe", "20"},
-           {"carrot", "20"}
+           {"strawberrie", "15"},
+           {"potatoe", "15"},
+           {"carrot", "15"}
        },
    };
 
@@ -88,7 +88,7 @@ public class MailManager : MonoBehaviour
        new Dictionary<string, string> {
            {"name", "Johnathan"},
            {"msg", "Wow, your crops have been a huge hit in my shop. My customers keep coming back asking why they have been tasting so much better than the ones before. Just between you and me, since your Pa retired I have been buying from Acomm Farms. They’re cheap since they can be found all over, but I don’t get many customers coming back for them. Yours are a hit and I’d love to order a batch of 50 strawberries and potatoes. Maybe you can add in a stash of 20 carrots."},
-           {"days", "5"},
+           {"days", "3"},
            {"strawberrie", "50"},
            {"potatoe", "50"},
            {"carrot", "20"}
@@ -104,7 +104,7 @@ public class MailManager : MonoBehaviour
        new Dictionary<string, string> {
            {"name", "Pa"},
            {"msg", "Hey kiddo, how is everything going? Your Ma needs 15 potatoes and carrots for a big soup she’s making. The town has been talking left and right about your crops. Your Ma and I are so proud of you and I hope you know that we love you. Keep it up kiddo."},
-           {"days", "3"},
+           {"days", "2"},
            {"strawberrie", "0"},
            {"potatoe", "15"},
            {"carrot", "15"}
@@ -148,7 +148,7 @@ public class MailManager : MonoBehaviour
 
 
    public void NewDay() {
-       float mailChance = 20f + (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
+       float mailChance = 30f + (float)DaySystem.instance.dayCount + ((float)Experience.instance.experience / 1000f);
 
 
        int letterNum = 0;

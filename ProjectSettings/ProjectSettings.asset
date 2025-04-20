@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Sleepy Potato Games
   productName: Bountiful Acres
-  defaultCursor: {fileID: 2800000, guid: 6b04203bebab7f348bfc56440f67afb9, type: 3}
+  defaultCursor: {fileID: 2800000, guid: f3cb8357d2ae446c795eedfaf38c0756, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
