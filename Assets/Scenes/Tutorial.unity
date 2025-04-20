@@ -2895,6 +2895,10 @@ MonoBehaviour:
   crop: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!61 &540852091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3116,6 +3120,10 @@ MonoBehaviour:
   crop: {fileID: 0}
   plot: {fileID: 0}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!1 &560445534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5625,6 +5633,10 @@ MonoBehaviour:
   crop: {fileID: 6192382973592746240, guid: 9375a32c4ed8b3a4fa8309d136152b06, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!50 &1161216883
 Rigidbody2D:
   serializedVersion: 4
@@ -5808,6 +5820,10 @@ MonoBehaviour:
   crop: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!212 &1170220079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8303,6 +8319,10 @@ MonoBehaviour:
   crop: {fileID: 501119480129419355, guid: b1947974f1d6d4784ba0460661b5a28f, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!212 &1742016943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9787,6 +9807,10 @@ MonoBehaviour:
   crop: {fileID: 665184583646919235, guid: 9e5d8b34b07a84cbeb2c6a304ad53194, type: 3}
   plot: {fileID: 2299946051370004327, guid: 0a7cc29cc4f074641b36be49d9325d3c, type: 3}
   animator: {fileID: 0}
+  tillingSFX: {fileID: 0}
+  wateringSFX: {fileID: 0}
+  harvestingSFX: {fileID: 0}
+  plantingSFX: {fileID: 0}
 --- !u!212 &1989725417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10002,6 +10026,7 @@ GameObject:
   - component: {fileID: 1999732038}
   - component: {fileID: 1999732039}
   - component: {fileID: 1999732041}
+  - component: {fileID: 1999732042}
   m_Layer: 0
   m_Name: Farm_Manager
   m_TagString: Untagged
@@ -10133,6 +10158,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyDisplay: {fileID: 668480203}
   money: 0
+--- !u!82 &1999732042
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999732033}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 345f1a14a0ebd4d6da515b6ec9556e1a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2002541583
 GameObject:
   m_ObjectHideFlags: 0
@@ -15198,6 +15319,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7512305164331165}
   spriteEmpty: {fileID: 21300000, guid: fce8878598562134a942b5384a6ef241, type: 3}
   spriteFull: {fileID: 21300000, guid: 25aa2345b54231b43b46bf883731506d, type: 3}
+  gotMail: {fileID: 0}
 --- !u!212 &2559995189474548014
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ public class Mailbox : MonoBehaviour
     [SerializeField] Sprite spriteEmpty;
     [SerializeField] Sprite spriteFull;
 
+    public AudioClip gotMail;
+    AudioSource audioSource;
+
     void Awake() {
         instance = this;
         SetEmpty();
@@ -19,6 +22,8 @@ public class Mailbox : MonoBehaviour
     }
 
     public void SetFull() {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(gotMail);
         spriteRenderer.sprite = spriteFull;
     }
 
